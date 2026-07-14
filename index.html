@@ -6,7 +6,7 @@
 <title>幻兽帕鲁 1.0 发行节奏以及市场动作调研报告</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600&family=Noto+Sans+SC:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600&family=Noto+Sans+SC:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
 :root{
@@ -17,12 +17,14 @@
 --on-primary:#fff;--on-dark:#faf9f5;--on-dark-soft:#a09d96;--accent-teal:#5db8a6;--accent-amber:#e8a55a;--success:#5db872;--warning:#d4a017;
 --serif:"Cormorant Garamond","Noto Serif SC",Garamond,"Times New Roman",serif;
 --sans:"Inter","Noto Sans SC",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
---mono:"JetBrains Mono",ui-monospace,monospace;
+--mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--canvas);color:var(--body);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
 .serif{font-family:var(--serif)}
+/* 统一数字字体：所有展示型数字用等宽 JetBrains Mono + 表格数字对齐 */
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
 h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--ink);letter-spacing:-0.5px}
 a{color:var(--primary);text-decoration:none}
@@ -47,7 +49,6 @@ a{color:var(--primary);text-decoration:none}
 .hero{padding:34px 0 60px}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--primary);margin-bottom:26px}
 .eyebrow::before{content:"";width:20px;height:1px;background:var(--primary)}
-.hero .lead{font-size:18px;line-height:1.6;color:var(--body-strong);max-width:64ch;margin-bottom:28px}
 .meta-row{display:flex;flex-wrap:wrap;gap:10px}
 .pill{background:var(--surface-card);color:var(--ink);font-size:13px;font-weight:500;padding:6px 14px;border-radius:9999px}
 .pill.coral{background:var(--primary);color:#fff}
@@ -55,13 +56,13 @@ a{color:var(--primary);text-decoration:none}
 .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:42px}
 .metric{background:var(--surface-card);border-radius:12px;padding:22px}
 .metric .k{font-size:12.5px;color:var(--muted);margin-bottom:10px}
-.metric .v{font-family:var(--serif);font-size:32px;font-weight:500;color:var(--ink);letter-spacing:-1px;line-height:1}
+.metric .v{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:30px;font-weight:500;color:var(--ink);letter-spacing:-1px;line-height:1}
 .metric .s{font-size:12px;color:var(--muted-soft);margin-top:8px}
 .metric .s.up{color:var(--primary);font-weight:500}
 
 section{padding:64px 0}
 .sec-head{margin-bottom:32px}
-.sec-head .num{font-family:var(--serif);font-size:15px;color:var(--primary)}
+.sec-head .num-t{font-family:var(--serif);font-size:15px;color:var(--primary)}
 .sec-head h2{font-size:34px;line-height:1.14;letter-spacing:-1px;margin-top:6px}
 .sec-head p{color:var(--muted);font-size:15px;margin-top:12px;max-width:76ch}
 
@@ -69,7 +70,7 @@ section{padding:64px 0}
 .band-dark{background:var(--surface-dark);color:var(--on-dark)}
 .band-dark h2,.band-dark h3{color:var(--on-dark)}
 .band-dark .sec-head p{color:var(--on-dark-soft)}
-.band-dark .num{color:var(--accent-amber)}
+.band-dark .num-t{color:var(--accent-amber)}
 .band-dark .subh{color:var(--on-dark)}
 
 .subh{font-family:var(--serif);font-size:22px;font-weight:500;margin-bottom:16px;margin-top:8px;color:var(--ink)}
@@ -80,6 +81,7 @@ section{padding:64px 0}
 .tbl tr:hover td{background:var(--surface-soft)}
 .tbl strong{color:var(--ink);font-weight:600}
 .tbl .hi{color:var(--primary);font-weight:600}
+.tbl td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 
 .chart-card{background:var(--canvas);border:1px solid var(--hairline);border-radius:12px;padding:26px 28px}
 .chart-card .ct{font-family:var(--sans);font-weight:500;font-size:16px;color:var(--ink);margin-bottom:4px}
@@ -90,16 +92,16 @@ section{padding:64px 0}
 .line{width:16px;height:3px;display:inline-block;border-radius:2px}
 .canvas-wrap{position:relative;width:100%}
 
-/* 7.10前后对比条 */
 .cmp{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;background:var(--canvas);border:1px solid var(--hairline);border-radius:12px;overflow:hidden;margin:20px 0}
 .cmp .side{padding:20px 24px}
 .cmp .side.pre{background:var(--surface-soft)}
 .cmp .side.post{background:#fbf1ec}
 .cmp .side .lbl{font-size:11.5px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
 .cmp .side.post .lbl{color:var(--primary)}
-.cmp .row{display:flex;justify-content:space-between;font-size:13.5px;padding:4px 0;color:var(--body)}
-.cmp .row b{font-family:var(--serif);font-size:18px;color:var(--ink);font-weight:500}
+.cmp .row{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;padding:4px 0;color:var(--body)}
+.cmp .row b{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:16px;color:var(--ink);font-weight:500}
 .cmp .side.post .row b{color:var(--primary)}
+.cmp .row b.txt{font-family:var(--serif);font-size:17px}
 .cmp .arrow{display:flex;align-items:center;justify-content:center;padding:0 8px;background:var(--surface-cream-strong);color:var(--primary);font-family:var(--serif);font-size:22px;font-weight:500}
 
 .summary{background:var(--surface-card);border-left:3px solid var(--primary);border-radius:8px;padding:16px 22px;margin-top:20px;font-size:14.5px;color:var(--body-strong);line-height:1.65}
@@ -115,11 +117,13 @@ section{padding:64px 0}
 .fcard h3{font-family:var(--sans);font-weight:600;font-size:16px;color:var(--ink);margin-bottom:10px;letter-spacing:0}
 .fcard p{font-size:14px;color:var(--body);line-height:1.6}
 .fcard .tag{font-size:11.5px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--primary);margin-bottom:10px;display:block}
+.fcard .big{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:26px;font-weight:500;color:var(--ink);margin:2px 0 8px}
 
 .dcard{background:var(--surface-dark-elevated);border-radius:12px;padding:26px}
 .dcard h3{font-family:var(--sans);font-weight:600;font-size:16px;color:var(--on-dark);margin-bottom:10px}
 .dcard p{font-size:14px;color:var(--on-dark-soft);line-height:1.6}
 .dcard .tag{font-size:11.5px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--accent-amber);margin-bottom:10px;display:block}
+.dcard .big{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:26px;font-weight:500;color:var(--on-dark);margin:2px 0 8px}
 
 .callout{background:var(--primary);color:#fff;border-radius:12px;padding:44px 48px}
 .callout h2{color:#fff;font-size:30px;letter-spacing:-0.5px;margin-bottom:20px}
@@ -127,6 +131,7 @@ section{padding:64px 0}
 .callout li{font-size:15.5px;line-height:1.7;margin-bottom:14px;color:#fff}
 .callout li strong{font-weight:600}
 .callout li:last-child{margin-bottom:0}
+.callout .num{color:#fff}
 
 .narr{max-width:78ch}
 .narr ul{list-style:none;margin:12px 0}
@@ -136,7 +141,7 @@ section{padding:64px 0}
 
 .tl-item{display:flex;gap:20px;padding:15px 0;border-top:1px solid var(--hairline)}
 .tl-item:first-child{border-top:none}
-.tl-date{flex:0 0 120px;font-family:var(--serif);font-size:17px;color:var(--ink);font-weight:500}
+.tl-date{flex:0 0 120px;font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:15px;color:var(--ink);font-weight:500}
 .tl-body{flex:1}
 .tl-body .h{font-weight:600;color:var(--ink);font-size:14.5px;margin-bottom:3px}
 .tl-body .d{font-size:14px;color:var(--body);line-height:1.55}
@@ -145,6 +150,11 @@ section{padding:64px 0}
 .note strong{color:var(--ink)}
 .srcbadge{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.5px;color:var(--accent-teal);border:1px solid var(--accent-teal);border-radius:9999px;padding:2px 10px;margin-left:8px;vertical-align:middle}
 .gapbadge{color:var(--warning);border-color:var(--warning)}
+.cnbadge{color:var(--muted);border-color:var(--muted-soft)}
+
+.infocard{background:var(--surface-card);border-radius:12px;padding:20px 24px;margin-bottom:22px;font-size:13.5px;line-height:1.65;color:var(--body)}
+.infocard b{color:var(--ink);font-weight:600}
+.infocard .tit{font-family:var(--sans);font-weight:600;font-size:14px;color:var(--ink);margin-bottom:8px;display:flex;align-items:center;gap:8px}
 
 footer{background:var(--surface-dark);color:var(--on-dark-soft);padding:52px 0 40px}
 footer .brand{color:var(--on-dark);margin-bottom:16px}
@@ -181,7 +191,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
       <a href="#s2">定位卖点</a>
       <a href="#s3">社媒热度</a>
       <a href="#s4">测试预约</a>
-      <a href="#s5">创作者</a>
+      <a href="#s5">创作者/UGC</a>
       <a href="#s6">Twitch</a>
       <a href="#s7">数据全景</a>
     </div>
@@ -202,19 +212,19 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
 
 <header class="hero">
   <div class="wrap">
-    <span class="eyebrow">竞品发行与市场动作分析 · DataBrain 数据 · 更新至 2026-07-14（1.0 已发售）</span>
+    <span class="eyebrow">竞品发行与市场动作分析 · DataBrain 数据 · 更新至 2026-07-14（1.0 已发售）· 海外口径</span>
     <div class="meta-row">
       <span class="pill coral">1.0 已发售 · 二次首发成功</span>
-      <span class="pill">PCU 峰值 85.5 万（7/12）</span>
-      <span class="pill">Twitch 峰值观看人数 13.8 万（7/10）</span>
-      <span class="pill">累计销量 2,524 万</span>
+      <span class="pill">PCU 峰值 <span class="num">85.5</span> 万（7/12）</span>
+      <span class="pill">Twitch 峰值观看人数 <span class="num">13.8</span> 万（7/10）</span>
+      <span class="pill">累计销量 <span class="num">2,524</span> 万</span>
     </div>
 
     <div class="metrics">
-      <div class="metric"><div class="k">Steam PCU 发售后峰值</div><div class="v">85.5<span style="font-size:16px">万</span></div><div class="s up">7/12 · 较发售前日均 ×16.7</div></div>
-      <div class="metric"><div class="k">累计销量 (PC&Console)</div><div class="v">2,524<span style="font-size:16px">万</span></div><div class="s up">发售3天 +34万份</div></div>
-      <div class="metric"><div class="k">Twitch 观看时长峰值</div><div class="v">196<span style="font-size:16px">万h</span></div><div class="s up">7/11 · 较发售前日均 ×127</div></div>
-      <div class="metric"><div class="k">Steam 好评率</div><div class="v">94–96<span style="font-size:16px">%</span></div><div class="s">发售日单日 96%</div></div>
+      <div class="metric"><div class="k">Steam PCU 发售后峰值</div><div class="v">85.5<span style="font-size:15px">万</span></div><div class="s up">7/12 · 较发售前日均 ×16.7</div></div>
+      <div class="metric"><div class="k">累计销量 (PC&Console)</div><div class="v">2,524<span style="font-size:15px">万</span></div><div class="s up">发售3天 +34万份</div></div>
+      <div class="metric"><div class="k">Twitch 观看时长峰值</div><div class="v">196<span style="font-size:15px">万h</span></div><div class="s up">7/11 · 较发售前日均 ×127</div></div>
+      <div class="metric"><div class="k">Steam 好评率</div><div class="v">94–96<span style="font-size:15px">%</span></div><div class="s">发售日单日 96%</div></div>
     </div>
   </div>
 </header>
@@ -222,7 +232,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
 <section id="s1">
   <div class="wrap">
     <div class="sec-head">
-      <span class="num serif">01 — 发行与上线节奏</span>
+      <span class="num-t serif">01 — 发行与上线节奏</span>
       <h2 class="serif">发行节奏与定调<span class="srcbadge">DataBrain 情报</span></h2>
       <p>抢先体验分平台错峰上线，两年半持续大版本更新，7/10 以正式版 1.0 集大成。发行节奏典型"先跑量、再补内容、后转正"。</p>
     </div>
@@ -231,110 +241,151 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
     <table class="tbl" style="margin-bottom:32px">
       <thead><tr><th>阶段</th><th>时间</th><th>平台/说明</th></tr></thead>
       <tbody>
-        <tr><td>抢先体验 EA（不删档）</td><td>2024-01-19</td><td>PC (Steam) / Xbox / Game Pass 首发</td></tr>
-        <tr><td>EA 追加平台</td><td>2024-09-24</td><td>PlayStation 5</td></tr>
-        <tr><td>EA 追加平台</td><td>2025-03-03</td><td>Mac</td></tr>
-        <tr><td>正式版 1.0（全球）</td><td class="hi">2026-07-10 ✓ 已发售</td><td>PC/PS5/Xbox/Mac，PS5 首发即 1.0，Game Pass Day One</td></tr>
+        <tr><td>抢先体验 EA（不删档）</td><td class="n">2024-01-19</td><td>PC (Steam) / Xbox / Game Pass 首发</td></tr>
+        <tr><td>EA 追加平台</td><td class="n">2024-09-24</td><td>PlayStation 5</td></tr>
+        <tr><td>EA 追加平台</td><td class="n">2025-03-03</td><td>Mac</td></tr>
+        <tr><td>正式版 1.0（全球）</td><td class="n hi">2026-07-10 ✓</td><td>PC/PS5/Xbox/Mac，PS5 首发即 1.0，Game Pass Day One</td></tr>
       </tbody>
     </table>
 
     <div class="subh serif">发行节奏 · 重要节点</div>
     <div>
-      <div class="tl-item"><div class="tl-date serif">2024-01</div><div class="tl-body"><div class="h">EA 首曝上线</div><div class="d">"宝可梦 + 枪"话题引爆，8 小时破百万、3 天破 500 万套。</div></div></div>
-      <div class="tl-item"><div class="tl-date serif">2024-07</div><div class="tl-body"><div class="h">成立 Palworld Entertainment</div><div class="d">索尼音乐 + Aniplex + Pocketpair，专营 IP 授权（周边/卡牌/动画）。</div></div></div>
-      <div class="tl-item"><div class="tl-date serif">2026-06-06</div><div class="tl-body"><div class="h">Summer Game Fest 首曝 CG</div><div class="d">首支电影级预告 + 正式版定档，声量当日爆发。</div></div></div>
-      <div class="tl-item"><div class="tl-date serif">2026-07-10</div><div class="tl-body"><div class="h">正式版 1.0 发售 ✓</div><div class="d">世界树区域、地图翻倍；PCU 当日冲 49.8 万、Twitch 观看 167 万小时。</div></div></div>
-      <div class="tl-item"><div class="tl-date serif">2026-07-12</div><div class="tl-body"><div class="h">发售后首个周末峰值</div><div class="d">PCU 冲上 85.5 万，销量累计破 2524 万。</div></div></div>
+      <div class="tl-item"><div class="tl-date">2024-01</div><div class="tl-body"><div class="h">EA 首曝上线</div><div class="d">"宝可梦 + 枪"话题引爆，8 小时破百万、3 天破 500 万套。</div></div></div>
+      <div class="tl-item"><div class="tl-date">2024-07</div><div class="tl-body"><div class="h">成立 Palworld Entertainment</div><div class="d">索尼音乐 + Aniplex + Pocketpair，专营 IP 授权（周边/卡牌/动画）。</div></div></div>
+      <div class="tl-item"><div class="tl-date">2026-06-06</div><div class="tl-body"><div class="h">Summer Game Fest 首曝 CG</div><div class="d">首支电影级预告 + 正式版定档，声量当日爆发。</div></div></div>
+      <div class="tl-item"><div class="tl-date">2026-07-10</div><div class="tl-body"><div class="h">正式版 1.0 发售 ✓</div><div class="d">世界树区域、72 个新帕鲁（总数 287）；PCU 当日冲 49.8 万、Twitch 观看 167 万小时。</div></div></div>
+      <div class="tl-item"><div class="tl-date">2026-07-12</div><div class="tl-body"><div class="h">发售后首个周末峰值</div><div class="d">PCU 冲上 85.5 万，销量累计破 2524 万。</div></div></div>
     </div>
-    <div class="summary"><span class="st">小结 · 发行节奏</span>帕鲁把 1.0 做成"二次首发"：用两年半 EA 蓄内容口碑，选在 SGF 造势后 34 天正式发售。<strong>7.10 前后对比看，发行节奏设计成功——发售即刻引爆，PCU 从 5 万级跳到 85 万级。</strong></div>
+    <div class="summary"><span class="st">小结 · 发行节奏</span>帕鲁把 1.0 做成"二次首发"：用两年半 EA 蓄内容口碑，选在 SGF 造势后 34 天正式发售。<strong>发行节奏设计成功——发售即刻引爆，PCU 从 5 万级跳到 85 万级。</strong></div>
   </div>
 </section>
 
 <section id="s2" class="band-cream">
   <div class="wrap">
     <div class="sec-head">
-      <span class="num serif">02 — 产品定位 / 卖点</span>
-      <h2 class="serif">定位、卖点与目标受众<span class="srcbadge">DataBrain + 市场调研</span></h2>
-      <p>核心品类冒险，子品类"开放世界生存制作 + 生物收集"。卖点差异化建立在"捕宠 × 生存建造 × 枪械自动化"的组合上。</p>
+      <span class="num-t serif">02 — 产品定位 / 卖点</span>
+      <h2 class="serif">定位、卖点、三方口径与受众<span class="srcbadge">DataBrain + 市场调研</span></h2>
+      <p>核心品类冒险，子品类"开放世界生存制作 + 生物收集"。买断制 $29.99，发售前 Steam 夏促 30% OFF 引流；IP 衍生由 Palworld Entertainment 独立运营。</p>
     </div>
-    <div class="grid3" style="margin-bottom:28px">
-      <div class="fcard"><span class="tag">卖点优先级</span><h3>捕宠 × 生存 × 枪械</h3><p>核心卖点是"帕鲁不只战斗，还能种田、进厂、买卖甚至食用"。相较纯捕宠多了生存建造与自动化工业深度。</p></div>
-      <div class="fcard"><span class="tag">差异化对比</span><h3>vs 捕宠 / 大世界品类</h3><p>Steam 标签同时命中"生物收集 + 开放世界生存 + 自动化 + PvP"。DataBrain 相似游戏：Valheim、Terraria、怪物猎人系列。</p></div>
-      <div class="fcard"><span class="tag">目标受众</span><h3>25–34 岁男性核心</h3><p>玩家画像高度男性主导，核心 25–34 岁约占 40%。中国 + 美国合计贡献超 50% 玩家份额。</p></div>
+
+    <div class="subh serif">官方定位与核心卖点</div>
+    <div class="grid3" style="margin-bottom:32px">
+      <div class="fcard"><span class="tag">卖点优先级</span><h3>捕宠 × 生存 × 枪械</h3><p>核心卖点："帕鲁不只战斗，还能种田、进厂、买卖甚至食用"。相较纯捕宠多了生存建造与自动化工业深度。</p></div>
+      <div class="fcard"><span class="tag">1.0 主打</span><h3>世界树 + 72 新帕鲁</h3><p>官方发售叙事聚焦全新"世界树"区域、72 个新帕鲁（总数达 287）、跨平台联机——"史上最大更新"。</p></div>
+      <div class="fcard"><span class="tag">商业化</span><h3>买断 $29.99</h3><p>非售数值；发售前夏促 <span class="hi">30% OFF</span>（约 $20.99）引流，发售 3 天回补 34 万销量，验证低价冲量。</p></div>
     </div>
-    <div class="subh serif">商业化定调</div>
-    <table class="tbl">
-      <thead><tr><th>维度</th><th>信息</th></tr></thead>
+
+    <div class="subh serif">三方传播口径 × 卖点对比</div>
+    <table class="tbl" style="margin-bottom:20px">
+      <thead><tr><th>传播主体</th><th>强调的卖点</th><th>话语调性</th><th>典型信号</th></tr></thead>
       <tbody>
-        <tr><td>售卖模式</td><td>买断制。标准价 <strong>$29.99</strong>（约 ¥218），EA 初期 $26.99</td></tr>
-        <tr><td>发售前促销</td><td>2026 Steam 夏促 <span class="hi">30% OFF</span>（约 $20.99），为 1.0 引流</td></tr>
-        <tr><td>价格策略验证</td><td>发售 3 天新增销量约 <span class="hi">34 万份</span>，7/10 单日 16.6 万、7/11 攀升至 22.1 万，买断模型在发售期充分兑现</td></tr>
-        <tr><td>外观/衍生商业化</td><td>本体买断为主；IP 衍生由 Palworld Entertainment 独立运营</td></tr>
+        <tr><td><strong>官方 Pocketpair</strong></td><td>世界树新区域 / 72 新帕鲁 / 跨平台 /「史上最大更新」</td><td>倒计时预热、逐日爆料</td><td>#palworld1.0 #palworldupdate</td></tr>
+        <tr><td><strong>媒体 / 游戏号</strong></td><td>「2 年 EA 终转正」里程碑 /「Pokémon with guns」回归</td><td>news 跟进、盘点向</td><td>#gamingnews #whattoplay</td></tr>
+        <tr><td><strong>KOL / 创作者</strong></td><td>实玩高光 / 新帕鲁展示 / 攻略教学 / 整活</td><td>gameplay + guide</td><td>#palworldguide #survivalgame</td></tr>
+        <tr><td><strong>玩家 / UGC</strong></td><td>要不要重开档 / 新帕鲁可爱 / PS5 能玩了 / 对比宝可梦</td><td>期待 → 上手</td><td>#pokemon #xbox #steam</td></tr>
       </tbody>
     </table>
-    <div class="summary"><span class="st">小结 · 定位卖点</span>买断定价 + 发售前 30% 折扣的组合在 7.10 兑现：<strong>发售 3 天回补 34 万销量，验证"低价冲量 + 内容驱动"策略。</strong>受众仍是 25-34 男性中美双核，与低龄向产品区隔明显。</div>
-    <div class="note"><strong>说明：</strong>"卖点展示优先级""沟通口径"为定性判断，结合 DataBrain 品类标签 + 玩家画像 + 公开信息综合给出。</div>
+    <div class="note"><strong>口径洞察：</strong>官方主推"内容量与新区域"，但玩家自发讨论中 <span class="hi">#pokemon</span>（71 帖）仍是最大关联词——"宝可梦对标"是帕鲁绕不开的传播底色；KOL 侧则快速切入"攻略/实玩"，与官方"炫内容"形成互补。三方口径共同点是弱化争议、强化"回归/上手"。</div>
+
+    <div class="subh serif" style="margin-top:36px">目标受众画像与游戏重合度</div>
+    <div class="grid3" style="margin-bottom:20px">
+      <div class="fcard"><span class="tag">年龄（海外）</span><div class="big">18–34 岁</div><p>18–24 岁占比最高（&gt;40%），25–34 岁约 30–35%；Z 世代 + 千禧一代为核心。</p></div>
+      <div class="fcard"><span class="tag">性别（海外）</span><div class="big">男 75–80%</div><p>男性绝对主导，女性约 20–25%（多受可爱帕鲁形象吸引）。</p></div>
+      <div class="fcard"><span class="tag">最大海外市场</span><div class="big">美国 26.5%</div><p>德国 4.9% / 日本 3.5% / 加拿大 3.1% / 法国 2.9% / 英国 2.7% 紧随。</p></div>
+    </div>
+
+    <div class="subh serif">Steam 玩家重合度 Top（还在玩哪些游戏）</div>
+    <div class="grid2" style="align-items:start">
+      <table class="tbl">
+        <thead><tr><th>重合游戏</th><th>重叠度</th><th>亲密度</th></tr></thead>
+        <tbody>
+          <tr><td>Monster Hunter: World</td><td class="n hi">38.80%</td><td class="n">3.46x</td></tr>
+          <tr><td>V Rising</td><td class="n">21.85%</td><td class="n">3.81x</td></tr>
+          <tr><td>Monster Hunter Wilds</td><td class="n">21.11%</td><td class="n">4.24x</td></tr>
+          <tr><td>Enshrouded</td><td class="n">19.29%</td><td class="n hi">4.48x</td></tr>
+          <tr><td>ELDEN RING NIGHTREIGN</td><td class="n">14.15%</td><td class="n">3.40x</td></tr>
+          <tr><td>Clair Obscur: Expedition 33</td><td class="n">12.95%</td><td class="n">3.49x</td></tr>
+          <tr><td>Crimson Desert</td><td class="n">8.92%</td><td class="n">3.84x</td></tr>
+          <tr><td>Dune: Awakening</td><td class="n">6.97%</td><td class="n">4.30x</td></tr>
+        </tbody>
+      </table>
+      <div class="narr" style="padding-top:4px">
+        <div style="font-size:13.5px;color:var(--muted);margin-bottom:8px">重叠度 = 帕鲁玩家中同时玩该作的比例；亲密度 = 相较普通用户的倍数偏好。</div>
+        <ul>
+          <li><span class="kw">怪物猎人系列重合最高</span>：MHW 重叠 38.8%、Wilds 21.1%——帕鲁与"狩猎/养成"受众高度共享。</li>
+          <li><span class="kw">生存建造同赛道</span>：Enshrouded（亲密 4.48x 最高）、V Rising、Dune: Awakening 是直接竞品，抢同一批生存玩家。</li>
+          <li><span class="kw">魂系/ARPG 外溢</span>：Elden Ring Nightreign、Clair Obscur 说明帕鲁也吃到硬核动作受众。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="summary"><span class="st">小结 · 定位受众</span>帕鲁定位在"捕宠 × 生存建造"复合赛道，海外受众以 <strong>美国主导、25 岁上下男性</strong>为核心。<strong>重合度揭示真实竞争面：怪物猎人（养成）+ Enshrouded/V Rising（生存建造）是抢用户的直接对手。</strong>洛克若走低龄向，需在卖点沟通上与这批硬核向明确区隔。</div>
   </div>
 </section>
 
 <section id="s3">
   <div class="wrap">
     <div class="sec-head">
-      <span class="num serif">03 (1) — 市场动作 · 社媒热度</span>
-      <h2 class="serif">官方社媒粉丝积累与互动水平<span class="srcbadge">DataBrain 舆情</span></h2>
-      <p>官号四平台厚积，TikTok 粉丝量最高。1.0 发售把社媒声量推向全周期最高点。</p>
+      <span class="num-t serif">03 (1) — 市场动作 · 社媒热度</span>
+      <h2 class="serif">官方社媒粉丝积累与整体声量<span class="srcbadge">DataBrain 舆情</span><span class="srcbadge cnbadge">已排除中国 socials</span></h2>
+      <p>官号海外三平台厚积，TikTok 粉丝量最高。1.0 发售把社媒声量推向全周期最高点。</p>
     </div>
+
+    <div class="infocard">
+      <div class="tit">◆ UGC 数据在本报告的三个分析视角</div>
+      本报告 UGC / 社媒数据统一按三个视角分类呈现，避免重复：<b>① 本节（社媒热度）</b>看官方账号积累 + 整体声量量级与前后对比；<b>② 创作者 / UGC 节</b>看谁在产内容（创作者分层）、话题标签、分平台结构；<b>③ 数据全景节</b>看 PCU / UGC / Twitch 跨指标趋势并列。所有 UGC 口径均<b>已剔除 Bilibili 等中国平台与中文标签</b>。
+    </div>
+
     <div class="grid2" style="align-items:start">
       <div>
-        <div class="subh serif">官方账号粉丝量</div>
+        <div class="subh serif">官方账号粉丝量（海外）</div>
         <table class="tbl">
           <thead><tr><th>平台</th><th>官方账号</th><th>粉丝/订阅</th></tr></thead>
           <tbody>
-            <tr><td>TikTok</td><td>palworld_official</td><td class="hi">594,700</td></tr>
-            <tr><td>YouTube</td><td>pocketpair</td><td>538,000</td></tr>
-            <tr><td>Bilibili</td><td>幻兽帕鲁</td><td>493,551</td></tr>
-            <tr><td>X (Twitter)</td><td>palworld_en</td><td>454,538</td></tr>
-            <tr><td>Discord</td><td>Palworld Official</td><td>约 500,000+</td></tr>
+            <tr><td>TikTok</td><td>palworld_official</td><td class="n hi">594,700</td></tr>
+            <tr><td>YouTube</td><td>pocketpair</td><td class="n">538,000</td></tr>
+            <tr><td>X (Twitter)</td><td>palworld_en</td><td class="n">454,538</td></tr>
+            <tr><td>Discord</td><td>Palworld Official</td><td class="n">500,000+</td></tr>
           </tbody>
         </table>
+        <div style="font-size:12px;color:var(--muted-soft);margin-top:8px">注：Bilibili（约 49 万）为中国平台，按报告口径已排除。</div>
       </div>
       <div>
-        <div class="subh serif">互动与声量亮点</div>
+        <div class="subh serif">互动与声量亮点（海外）</div>
         <div class="narr"><ul>
-          <li><span class="kw">#Palworld 话题（TikTok）</span>：累计播放突破 <strong>95 亿</strong>次。</li>
-          <li><span class="kw">1.0 CG 预告（YouTube）</span>：播放 84.6 万、点赞 4.75 万。</li>
-          <li><span class="kw">发售后话题转向</span>：#教程攻略、#steam 上榜，中文 #幻兽帕鲁 单标签 420 帖涌现——玩家从"看热闹"转向"真上手"。</li>
+          <li><span class="kw">#Palworld 话题（TikTok）</span>：累计播放突破 <span class="num">95</span> 亿次。</li>
+          <li><span class="kw">1.0 CG 预告（YouTube）</span>：播放 <span class="num">84.6</span> 万、点赞 <span class="num">4.75</span> 万。</li>
+          <li><span class="kw">发售后话题转向</span>：#palworldupdate、#palworldguide、#steam 上榜——玩家从"看热闹"转向"真上手"。</li>
           <li><span class="kw">Discord</span>：官方服 24/7 活跃，发售后转向世界树/科技树攻略讨论。</li>
         </ul></div>
       </div>
     </div>
     <div class="cmp">
-      <div class="side pre"><div class="lbl">7.10 前 · UGC 日均（6/25–7/09）</div>
+      <div class="side pre"><div class="lbl">7.10 前 · 海外 UGC 日均（6/25–7/09）</div>
         <div class="row"><span>日均帖子</span><b>80</b></div>
         <div class="row"><span>日均互动</span><b>9.1 万</b></div>
-        <div class="row"><span>话题基调</span><b>期待/预热</b></div>
+        <div class="row"><span>话题基调</span><b class="txt">期待/预热</b></div>
       </div>
       <div class="arrow">→</div>
-      <div class="side post"><div class="lbl">7.10 后 · UGC 日均（7/10–7/13）</div>
+      <div class="side post"><div class="lbl">7.10 后 · 海外 UGC 日均（7/10–7/13）</div>
         <div class="row"><span>日均帖子</span><b>447</b></div>
         <div class="row"><span>日均互动</span><b>68 万</b></div>
-        <div class="row"><span>话题基调</span><b>实玩/攻略</b></div>
+        <div class="row"><span>话题基调</span><b class="txt">实玩/攻略</b></div>
       </div>
     </div>
-    <div class="summary"><span class="st">小结 · 社媒热度</span>发售把社媒声量推到全周期最高：<strong>7/10 单日 UGC 帖 464 条、播放 2887 万、互动 109 万，均为窗口峰值。</strong>话题从"期待"切换到"攻略/实玩"，是发售真正转化为游玩的信号。</div>
+    <div class="summary"><span class="st">小结 · 社媒热度</span>发售把社媒声量推到全周期最高：<strong>7/10 单日海外 UGC 帖 464 条、播放 2887 万、互动 109 万，均为窗口峰值。</strong>话题从"期待"切换到"攻略/实玩"，是发售真正转化为游玩的信号。</div>
   </div>
 </section>
 
 <section id="s4" class="band-cream">
   <div class="wrap">
     <div class="sec-head">
-      <span class="num serif">03 (2) — 市场动作 · 测试及预约</span>
+      <span class="num-t serif">03 (2) — 市场动作 · 测试及预约</span>
       <h2 class="serif">测试与预约情况</h2>
       <p>帕鲁走 Steam 抢先体验路线，非传统"封测招募 + 预约"模式，故该框架下多数子项需以竞品口径重新映射。</p>
     </div>
     <div class="grid2">
       <div class="fcard"><span class="tag">测试形态</span><h3>抢先体验替代封测</h3><p>帕鲁未做限量封测/预约招募，而是直接付费 EA 上线（不删档），用"边卖边更"替代传统测试期。这本身是其发行策略的差异点。</p></div>
-      <div class="fcard"><span class="tag">覆盖平台/国家</span><h3>全球同步 · 17 种语言</h3><p>EA 起即全球发行、最多 32 人联机、支持 17 种语言。核心市场中国 + 美国，德/法/日/印/巴西均有可观 UGC 声量。</p></div>
+      <div class="fcard"><span class="tag">覆盖平台/国家</span><h3>全球同步 · 17 种语言</h3><p>EA 起即全球发行、最多 32 人联机、支持 17 种语言。海外核心市场美国主导，德/法/日/英/巴西均有可观 UGC 声量。</p></div>
     </div>
     <div class="note"><strong>数据源边界：</strong>框架中"招募测试人数""投放素材 / 投放数据 / 预约效果分析"属发行方内部投放与预约后台数据 <span class="srcbadge gapbadge">DataBrain 不覆盖</span>。DataBrain 是竞品/市场外部监测库，无法提供竞品内部买量素材与预约转化。此三项建议由投放侧从广告平台或第三方素材库另行补充。</div>
   </div>
@@ -343,65 +394,91 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
 <section id="s5">
   <div class="wrap">
     <div class="sec-head">
-      <span class="num serif">03 (3) — 市场动作 · 创作者生态</span>
-      <h2 class="serif">海外内容与创作者生态<span class="srcbadge">DataBrain UGC</span></h2>
-      <p>发售期创作者生态全面引爆，大量中小创作者涌入。头部大 KOL + 长尾创作者共同推动。</p>
+      <span class="num-t serif">03 (3) — 市场动作 · 创作者与 UGC</span>
+      <h2 class="serif">海外创作者生态、分平台结构与话题<span class="srcbadge">DataBrain UGC</span><span class="srcbadge cnbadge">已排除中国</span></h2>
+      <p>发售期创作者生态全面引爆，大量中小创作者涌入。以下按"创作者 → 平台结构 → 话题"三层拆解（均为海外口径）。</p>
     </div>
 
-    <div class="subh serif">发售后（7/10 起）头部创作者（按互动）</div>
-    <table class="tbl" style="margin-bottom:24px">
+    <div class="subh serif">① 发售后（7/10 起）头部创作者（按互动）</div>
+    <table class="tbl" style="margin-bottom:28px">
       <thead><tr><th>创作者</th><th>视频数</th><th>发售后互动</th><th>粉丝量</th><th>类型</th></tr></thead>
       <tbody>
-        <tr><td>MuriloCZ（巴西）</td><td>8</td><td class="hi">161,021</td><td>294,800</td><td>中腰部主力</td></tr>
-        <tr><td>Omar Figueroa</td><td>1</td><td>145,362</td><td>7,068</td><td>爆款黑马</td></tr>
-        <tr><td>WarrRam</td><td>13</td><td>112,008</td><td>10,100</td><td>高产长尾</td></tr>
-        <tr><td>Misleading</td><td>21</td><td>109,199</td><td>235,300</td><td>高产腰部</td></tr>
-        <tr><td>Dattrax Gaming（印区）</td><td>4</td><td>54,530</td><td>324 万</td><td>头部大 KOL</td></tr>
+        <tr><td>MuriloCZ（巴西）</td><td class="n">8</td><td class="n hi">161,021</td><td class="n">294,800</td><td>中腰部主力</td></tr>
+        <tr><td>Omar Figueroa</td><td class="n">1</td><td class="n">145,362</td><td class="n">7,068</td><td>爆款黑马</td></tr>
+        <tr><td>WarrRam</td><td class="n">13</td><td class="n">112,008</td><td class="n">10,100</td><td>高产长尾</td></tr>
+        <tr><td>Misleading</td><td class="n">21</td><td class="n">109,199</td><td class="n">235,300</td><td>高产腰部</td></tr>
+        <tr><td>Dattrax Gaming（印区）</td><td class="n">4</td><td class="n">54,530</td><td class="n">3,240,000</td><td>头部大 KOL</td></tr>
       </tbody>
     </table>
 
-    <div class="grid2" style="align-items:start">
+    <div class="subh serif">② 海外内容分平台结构</div>
+    <div class="grid2" style="align-items:start;margin-bottom:14px">
       <div class="chart-card">
-        <div class="ct">海外内容平台分布</div>
-        <div class="cs">按 UGC 帖子数 · 数据来源 DataBrain</div>
-        <div class="canvas-wrap" style="height:290px"><canvas id="cPlat" role="img" aria-label="平台分布饼图">平台分布</canvas></div>
+        <div class="ct">分平台帖子数 vs 互动量</div>
+        <div class="cs">TikTok 帖量第三、互动断层第一 · 已排除中国平台</div>
+        <div class="legend">
+          <span><span class="dot" style="background:#c9b89a"></span>帖子数</span>
+          <span><span class="dot" style="background:#cc785c"></span>互动量(万)</span>
+        </div>
+        <div class="canvas-wrap" style="height:280px"><canvas id="cPlat" role="img" aria-label="分平台帖子数与互动量">分平台结构</canvas></div>
       </div>
       <div>
-        <div class="subh serif">发售后话题标签 Top</div>
         <table class="tbl">
-          <thead><tr><th>标签</th><th>帖数</th><th>信号</th></tr></thead>
+          <thead><tr><th>平台</th><th>帖数</th><th>互动</th><th>情绪(正/负)</th></tr></thead>
           <tbody>
-            <tr><td>#palworld</td><td>1,158</td><td>主标签顶格</td></tr>
-            <tr><td>#幻兽帕鲁</td><td>420</td><td>中文声量涌现</td></tr>
-            <tr><td class="hi">#教程攻略</td><td>141</td><td><strong>玩家真上手找攻略</strong></td></tr>
-            <tr><td>#steam</td><td>122</td><td>平台导流</td></tr>
-            <tr><td>#palworldgame</td><td>145</td><td>泛游戏跟进</td></tr>
+            <tr><td>TikTok</td><td class="n">513</td><td class="n hi">189 万</td><td class="n">54% / 5%</td></tr>
+            <tr><td>YouTube</td><td class="n">716</td><td class="n">85 万</td><td class="n">33% / 8%</td></tr>
+            <tr><td>Twitter/X</td><td class="n">1,128</td><td class="n">72 万</td><td class="n">39% / 14%</td></tr>
+            <tr><td>Instagram</td><td class="n">180</td><td class="n">43 万</td><td class="n">46% / 4%</td></tr>
+            <tr><td>Reddit</td><td class="n">99</td><td class="n">6 万</td><td class="n">30% / 19%</td></tr>
           </tbody>
         </table>
+        <div style="font-size:12px;color:var(--muted-soft);margin-top:8px">TikTok 互动效率最高；Reddit 硬核向负面比例最高（19%）。</div>
       </div>
     </div>
 
-    <div class="cmp">
-      <div class="side pre"><div class="lbl">7.10 前 · 创作者内容</div>
-        <div class="row"><span>内容基调</span><b>预告/期待</b></div>
-        <div class="row"><span>热门话题</span><b>#ps5 #卡牌</b></div>
-      </div>
-      <div class="arrow">→</div>
-      <div class="side post"><div class="lbl">7.10 后 · 创作者内容</div>
-        <div class="row"><span>内容基调</span><b>实玩/攻略/整活</b></div>
-        <div class="row"><span>热门话题</span><b>#教程攻略 涌现</b></div>
+    <div class="subh serif" style="margin-top:26px">③ 海外热门话题标签（已排除中文 tag）</div>
+    <div class="grid2" style="align-items:start">
+      <table class="tbl">
+        <thead><tr><th>标签</th><th>帖数</th><th>信号</th></tr></thead>
+        <tbody>
+          <tr><td class="hi">#pokemon</td><td class="n">71</td><td><strong>最大关联词，宝可梦对标底色</strong></td></tr>
+          <tr><td>#palworldupdate</td><td class="n">55</td><td>1.0 更新讨论</td></tr>
+          <tr><td>#palworldcardgame</td><td class="n">47</td><td>实体卡牌 IP 衍生</td></tr>
+          <tr><td>#xbox</td><td class="n">34</td><td>平台受众</td></tr>
+          <tr><td>#survivalgame</td><td class="n">32</td><td>生存品类归属</td></tr>
+          <tr><td>#palworldguide</td><td class="n">28</td><td>攻略需求涌现</td></tr>
+          <tr><td>#whattoplay</td><td class="n">26</td><td>媒体盘点向</td></tr>
+        </tbody>
+      </table>
+      <div class="cmp" style="margin:0">
+        <div class="side pre"><div class="lbl">7.10 前 · 创作者内容</div>
+          <div class="row"><span>内容基调</span><b class="txt">预告/期待</b></div>
+          <div class="row"><span>热门话题</span><b class="txt">#ps5 #卡牌</b></div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="side post"><div class="lbl">7.10 后 · 创作者内容</div>
+          <div class="row"><span>内容基调</span><b class="txt">实玩/攻略</b></div>
+          <div class="row"><span>热门话题</span><b class="txt">#guide 涌现</b></div>
+        </div>
       </div>
     </div>
-    <div class="summary"><span class="st">小结 · 创作者生态</span>发售后创作者结构从"预热搬运"升级为"实玩 + 攻略"：<strong>大量中小创作者（MuriloCZ、WarrRam、Omar 等）涌入，攻略类内容成主流，长尾自来水规模扩大。</strong>这是内容生态进入自运转的健康信号。</div>
+    <div class="summary"><span class="st">小结 · 创作者/UGC</span>发售后创作者结构从"预热搬运"升级为"实玩 + 攻略"：<strong>TikTok 以最少帖量（513）产出最高互动（189 万），是效率之王；Twitter 走量、YouTube 承接攻略长内容。</strong>大量中小创作者涌入 + 攻略类内容成主流，是内容生态进入自运转的健康信号。</div>
   </div>
 </section>
 
 <section id="s6" class="band-dark">
   <div class="wrap">
     <div class="sec-head">
-      <span class="num serif">03 (4) — 市场动作 · Twitch 直播</span>
-      <h2 class="serif">Twitch 直播热度：发售即引爆<span class="srcbadge">DataBrain 情报</span></h2>
-      <p>Twitch 是帕鲁直播核心阵营。7/10 正式版发售当天，各项直播指标出现 80–95 倍的爆发式跃升。</p>
+      <span class="num-t serif">03 (4) — 市场动作 · Twitch 直播</span>
+      <h2 class="serif">Twitch 直播：发售即引爆 + 主播结构<span class="srcbadge">DataBrain 情报</span></h2>
+      <p>Twitch 是帕鲁直播核心阵营。7/10 发售当天各项直播指标出现数十至上百倍跃升，且大量主播集中开播。</p>
+    </div>
+
+    <div class="grid3" style="margin-bottom:22px">
+      <div class="dcard"><span class="tag">开播频道/主播</span><div class="big">2,406</div><p>发售期独立主播总数，平均每小时约 <span style="color:var(--on-dark)">69</span> 个频道同时在线。</p></div>
+      <div class="dcard"><span class="tag">发售日峰值观众</span><div class="big">138,381</div><p>7/10 当天 Twitch 峰值观众，较发售前日均（约 2,150）约 ×64。</p></div>
+      <div class="dcard"><span class="tag">观看时长峰值</span><div class="big">196 万h</div><p>7/11 单日观看时长，较发售前日均（1.5 万h）约 ×127。</p></div>
     </div>
 
     <div class="chart-card" style="margin-bottom:22px;background:var(--surface-dark-soft);border-color:#2c2a27">
@@ -414,40 +491,43 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
       <div class="canvas-wrap" style="height:300px"><canvas id="cTwitch" role="img" aria-label="Twitch观看时长与峰值观众">Twitch趋势</canvas></div>
     </div>
 
-    <div class="cmp" style="background:var(--surface-dark-elevated);border-color:#2c2a27">
-      <div class="side pre" style="background:var(--surface-dark-soft)"><div class="lbl" style="color:var(--on-dark-soft)">7.10 前 · 日均（7/1–7/9）</div>
-        <div class="row" style="color:var(--on-dark-soft)"><span>观看时长</span><b style="color:var(--on-dark)">1.5 万h</b></div>
-        <div class="row" style="color:var(--on-dark-soft)"><span>峰值观众</span><b style="color:var(--on-dark)">最高 6,789</b></div>
-        <div class="row" style="color:var(--on-dark-soft)"><span>直播时长</span><b style="color:var(--on-dark)">约 2,700h</b></div>
+    <div class="grid2" style="align-items:start;margin-bottom:6px">
+      <div>
+        <div class="subh serif">头部主播（多语区，按观看/观众）</div>
+        <table class="tbl" style="background:var(--surface-dark-soft);border-color:#2c2a27">
+          <thead><tr style="background:#2c2a27"><th style="color:var(--on-dark);background:#2c2a27">主播</th><th style="color:var(--on-dark);background:#2c2a27">语区</th><th style="color:var(--on-dark);background:#2c2a27">观看时长/均观众</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--on-dark-soft);border-color:#2c2a27">leaksworld_</td><td style="color:var(--on-dark-soft);border-color:#2c2a27">英</td><td class="n" style="color:var(--accent-amber);border-color:#2c2a27">8,741 h</td></tr>
+            <tr><td style="color:var(--on-dark-soft);border-color:#2c2a27">l_Pearl_l</td><td style="color:var(--on-dark-soft);border-color:#2c2a27">法</td><td class="n" style="color:var(--on-dark);border-color:#2c2a27">4,750 h</td></tr>
+            <tr><td style="color:var(--on-dark-soft);border-color:#2c2a27">SinSquadGaming365</td><td style="color:var(--on-dark-soft);border-color:#2c2a27">英</td><td class="n" style="color:var(--on-dark);border-color:#2c2a27">4,502 h</td></tr>
+            <tr><td style="color:var(--on-dark-soft);border-color:#2c2a27">Mega_Bits</td><td style="color:var(--on-dark-soft);border-color:#2c2a27">英</td><td class="n" style="color:var(--on-dark);border-color:#2c2a27">4,437 h</td></tr>
+            <tr><td style="color:var(--on-dark-soft);border-color:#2c2a27">Gospojaaaa</td><td style="color:var(--on-dark-soft);border-color:#2c2a27">俄</td><td class="n" style="color:var(--on-dark);border-color:#2c2a27">3,942 h</td></tr>
+            <tr><td style="color:var(--on-dark-soft);border-color:#2c2a27">JadeyAnh</td><td style="color:var(--on-dark-soft);border-color:#2c2a27">英</td><td class="n" style="color:var(--on-dark);border-color:#2c2a27">均 970 人</td></tr>
+          </tbody>
+        </table>
       </div>
-      <div class="arrow" style="background:#2c2a27;color:var(--accent-amber)">→</div>
-      <div class="side post" style="background:#2a211c"><div class="lbl" style="color:var(--accent-amber)">7.10 后 · 峰值（7/10–7/12）</div>
-        <div class="row" style="color:var(--on-dark-soft)"><span>观看时长</span><b style="color:var(--accent-amber)">196 万h（7/11）</b></div>
-        <div class="row" style="color:var(--on-dark-soft)"><span>峰值观众</span><b style="color:var(--accent-amber)">13.8 万（7/10）</b></div>
-        <div class="row" style="color:var(--on-dark-soft)"><span>直播时长</span><b style="color:var(--accent-amber)">7.6 万h（7/11）</b></div>
+      <div class="chart-card" style="background:var(--surface-dark-soft);border-color:#2c2a27">
+        <div class="ct" style="color:var(--on-dark)">头 / 中 / 尾主播分布</div>
+        <div class="cs" style="color:var(--on-dark-soft)">约 2,406 主播 · 典型长尾金字塔</div>
+        <div class="legend" style="color:var(--on-dark-soft)">
+          <span><span class="dot" style="background:#cc785c"></span>头部(&gt;4千h)</span>
+          <span><span class="dot" style="background:#e8a55a"></span>腰部</span>
+          <span><span class="dot" style="background:#5db8a6"></span>长尾</span>
+        </div>
+        <div class="canvas-wrap" style="height:220px"><canvas id="cTier" role="img" aria-label="主播头中尾分布">主播分层</canvas></div>
       </div>
     </div>
 
-    <table class="tbl" style="margin-top:22px;background:var(--surface-dark-soft);border-color:#2c2a27">
-      <thead><tr style="background:#2c2a27"><th style="color:var(--on-dark);background:#2c2a27">日期</th><th style="color:var(--on-dark);background:#2c2a27">观看时长(h)</th><th style="color:var(--on-dark);background:#2c2a27">峰值观众</th><th style="color:var(--on-dark);background:#2c2a27">平均观众</th><th style="color:var(--on-dark);background:#2c2a27">直播时长(h)</th></tr></thead>
-      <tbody style="color:var(--on-dark-soft)">
-        <tr><td style="color:var(--on-dark-soft);border-color:#2c2a27">7/09（发售前）</td><td style="color:var(--on-dark-soft);border-color:#2c2a27">20,595</td><td style="color:var(--on-dark-soft);border-color:#2c2a27">6,789</td><td style="color:var(--on-dark-soft);border-color:#2c2a27">858</td><td style="color:var(--on-dark-soft);border-color:#2c2a27">2,932</td></tr>
-        <tr><td style="color:var(--accent-amber);border-color:#2c2a27">7/10（发售日）</td><td style="color:var(--accent-amber);border-color:#2c2a27">1,671,497</td><td style="color:var(--accent-amber);border-color:#2c2a27">138,381</td><td style="color:var(--accent-amber);border-color:#2c2a27">69,646</td><td style="color:var(--accent-amber);border-color:#2c2a27">59,298</td></tr>
-        <tr><td style="color:var(--on-dark);border-color:#2c2a27">7/11（峰值）</td><td style="color:var(--on-dark);border-color:#2c2a27">1,958,765</td><td style="color:var(--on-dark);border-color:#2c2a27">118,325</td><td style="color:var(--on-dark);border-color:#2c2a27">81,615</td><td style="color:var(--on-dark);border-color:#2c2a27">76,492</td></tr>
-        <tr><td style="color:var(--on-dark);border-color:#2c2a27">7/12</td><td style="color:var(--on-dark);border-color:#2c2a27">1,691,373</td><td style="color:var(--on-dark);border-color:#2c2a27">109,995</td><td style="color:var(--on-dark);border-color:#2c2a27">70,474</td><td style="color:var(--on-dark);border-color:#2c2a27">70,185</td></tr>
-      </tbody>
-    </table>
-
-    <div class="summary"><span class="st">小结 · Twitch</span>Twitch 是发售爆发最剧烈的渠道：<strong>观看时长从发售前日均 1.5 万小时飙至 7/11 的 196 万小时（约 ×127），峰值观众从日均约 2,150 冲到 13.8 万（约 ×64），直播供给侧直播时长增长约 29 倍。</strong>大量主播集中开播是发售热度的直接放大器。（倍率均以发售前 7/1–7/9 日均为基准）</div>
+    <div class="summary"><span class="st">小结 · Twitch</span>Twitch 是发售爆发最剧烈的渠道：<strong>观看时长 7/11 达 196 万小时（约 ×127）、峰值观众 13.8 万（约 ×64）、约 2,406 名主播集中开播。</strong>主播呈典型长尾结构——头部数十名（如 leaksworld_、l_Pearl_l）扛观看时长，海量中长尾主播贡献广度；且多语区（英/法/俄）并进，不依赖单一头部。（倍率以发售前 7/1–7/9 日均为基准）</div>
   </div>
 </section>
 
 <section id="s7" class="band-cream">
   <div class="wrap">
     <div class="sec-head">
-      <span class="num serif">04 — 数据全景与趋势</span>
+      <span class="num-t serif">04 — 数据全景与趋势</span>
       <h2 class="serif">1.0 发售：全指标的量级跃迁<span class="srcbadge">DataBrain</span></h2>
-      <p>Steam PCU 与社区 UGC 双维度呈现 7/10 发售前后的跃迁。PCU 纵轴锁定在真实数据区间（0–90 万）。</p>
+      <p>跨指标视角：Steam PCU、社区 UGC、Twitch 三条曲线并列看 7/10 发售前后的同步跃迁。PCU 纵轴锁定真实数据区间（0–90 万）。</p>
     </div>
 
     <div class="chart-card" style="margin-bottom:22px">
@@ -459,7 +539,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
 
     <div class="grid2">
       <div class="chart-card">
-        <div class="ct">UGC 每日互动 & 帖子数（6/25–7/13）</div>
+        <div class="ct">海外 UGC 每日互动 & 帖子数（6/25–7/13）</div>
         <div class="cs">7/10 发售当日双双冲顶</div>
         <div class="legend">
           <span><span class="line" style="background:#cc785c"></span>互动量</span>
@@ -469,7 +549,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
       </div>
       <div class="chart-card">
         <div class="ct">7.10 前后日均对比</div>
-        <div class="cs">PCU / UGC互动 / Twitch观看 三指标</div>
+        <div class="cs">PCU / UGC互动 / Twitch观看 三指标（对数轴）</div>
         <div class="legend">
           <span><span class="dot" style="background:#b4b2a9"></span>发售前日均</span>
           <span><span class="dot" style="background:#cc785c"></span>发售后日均</span>
@@ -480,7 +560,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
 
     <div style="margin-top:24px" class="narr"><ul>
       <li><span class="kw">Steam PCU</span>：发售前日均约 5.1 万，<strong>7/10 跳至 49.8 万，7/12 峰值 85.5 万</strong>（较发售前日均 ×16.7），未破 EA 期 203 万历史纪录但稳居榜前。</li>
-      <li><span class="kw">UGC</span>：7/10 单日 464 帖 / 播放 2887 万 / 互动 109 万，全窗口峰值。</li>
+      <li><span class="kw">海外 UGC</span>：7/10 单日 464 帖 / 播放 2887 万 / 互动 109 万，全窗口峰值。</li>
       <li><span class="kw">Twitch</span>：观看时长 7/11 达 196 万小时，较发售前日均约 ×127。</li>
     </ul></div>
     <div class="summary"><span class="st">小结 · 数据全景</span>三大外部指标（PCU / UGC / Twitch）在 7/10 同步跃迁，量级 ×16–127 不等（均以发售前日均为基准），且好评率维持 94-96%。<strong>这是一次教科书级的"二次首发"——内容口碑 + 平台势能 + 创作者生态同时兑现。</strong></div>
@@ -490,15 +570,15 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
 <section id="s8">
   <div class="wrap">
     <div class="sec-head">
-      <span class="num serif">05 — 总体结论</span>
+      <span class="num-t serif">05 — 总体结论</span>
       <h2 class="serif">对洛克海外发行的三点镜鉴</h2>
     </div>
     <div class="callout">
       <h2 class="serif">帕鲁 1.0"二次首发"给到的启发</h2>
       <ol>
         <li><strong>发行节奏：</strong>"付费抢先体验 + 持续大版本 + 正式版二次首发"是可复用范式。用两年半蓄内容口碑，SGF 造势后 34 天发售，发售即引爆 PCU ×16.7、Twitch ×127（较发售前日均），价格用 30% 折扣冲量。</li>
-        <li><strong>卖点与受众：</strong>差异化建立在"捕宠 × 生存建造 × 自动化"组合而非单一捕宠；核心受众 25–34 岁男性、中美双核。发售 3 天回补 34 万销量验证低价冲量。洛克若走低龄向需在卖点沟通上明确区隔。</li>
-        <li><strong>市场动作：</strong>发售前官号四平台厚积（TikTok 59.5万/话题 95 亿播放）+ 创作者长尾生态是弹药库；发售瞬间 Twitch 主播集中开播是最强放大器。话题从"期待"转"攻略"标志真实转化。运营可延续：攻略内容供给 + 卡牌 IP 联动。</li>
+        <li><strong>卖点与受众：</strong>差异化建立在"捕宠 × 生存建造 × 自动化"组合；海外受众美国主导、25 岁上下男性。重合度显示真实对手是怪物猎人 + Enshrouded/V Rising。洛克若走低龄向需在卖点沟通上明确区隔。</li>
+        <li><strong>市场动作：</strong>官方三平台厚积 + 创作者长尾生态是弹药库；TikTok 是互动效率之王、YouTube 承接攻略、Twitch 2,406 主播集中开播是最强放大器。三方口径中 #pokemon 仍是最大关联词——对标叙事绕不开。运营可延续：攻略内容供给 + 卡牌 IP 联动。</li>
       </ol>
     </div>
   </div>
@@ -510,17 +590,16 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
       <svg class="spike" viewBox="0 0 24 24" fill="#faf9f5"><path d="M12 0l2.4 8.1L22 5.2l-5.6 6L24 12l-7.6 0.8L22 18.8l-7.6-2.9L12 24l-2.4-8.1L2 18.8l5.6-6.9L0 12l7.6-0.8L2 5.2l7.6 2.9z"/></svg>
       幻兽帕鲁竞品发行分析
     </div>
-    <p>数据来自 DataBrain（腾讯游戏全球数据分析平台）情报 + 舆情 + 社区 UGC 监测。本版更新至 2026-07-14，含 7/10 正式版发售后数据。PCU/销量/Twitch 为 alinea 等数据源校准值；UGC 窗口 6/25–7/14（7/14 当日数据不完整）。情报/舆情为平台校准估算值，存在统计延迟与采样范围限制。带 <span class="srcbadge gapbadge">DataBrain 不覆盖</span> 标记项为外部监测库能力边界之外，需由投放/发行侧补充。</p>
-    <div class="fnote">报告初版 2026-07-07 · 更新 2026-07-14（1.0 发售后）· 分析框架参照内部竞品分析大纲 · 仅供内部参考</div>
+    <p>数据来自 DataBrain（腾讯游戏全球数据分析平台）情报 + 舆情 + 社区 UGC 监测。本版更新至 2026-07-14，含 7/10 正式版发售后数据，<strong>全报告采用海外口径，已剔除 Bilibili 等中国平台与中文标签数据</strong>。PCU/销量/Twitch 为 alinea 等数据源校准值；UGC 窗口 6/25–7/14（7/14 当日数据不完整）。年龄/性别为同类产品建模推算值。带 <span class="srcbadge gapbadge">DataBrain 不覆盖</span> 标记项需由投放/发行侧补充。</p>
+    <div class="fnote">报告初版 2026-07-07 · 更新 2026-07-14（1.0 发售后 · 海外口径）· 分析框架参照内部竞品分析大纲 · 仅供内部参考</div>
   </div>
 </footer>
 
 <script>
 const grid='rgba(20,20,19,0.06)',gridD='rgba(255,255,255,0.08)',muted='#6c6a64',mutedD='#a09d96';
-Chart.defaults.font.family="Inter, 'Noto Sans SC', sans-serif";
+Chart.defaults.font.family="'JetBrains Mono', Inter, 'Noto Sans SC', sans-serif";
 Chart.defaults.font.size=11;Chart.defaults.color=muted;
 
-/* Steam PCU 走势 —— Y轴锁死 0..900000 */
 new Chart(document.getElementById('cPcu'),{
  data:{labels:["7/01","7/02","7/03","7/04","7/05","7/06","7/07","7/08","7/09","7/10","7/11","7/12","7/13"],
   datasets:[{type:'line',data:[43906,43646,47629,54476,57886,50953,52357,53718,55565,498456,725212,855459,513308],
@@ -530,7 +609,6 @@ new Chart(document.getElementById('cPcu'),{
   scales:{x:{grid:{display:false},ticks:{maxRotation:0}},
    y:{min:0,max:900000,ticks:{stepSize:150000,callback:v=>(v/10000)+'万'},grid:{color:grid},title:{display:true,text:'峰值同时在线'}}}}});
 
-/* UGC 互动+帖子 双轴 */
 new Chart(document.getElementById('cUgc'),{
  data:{labels:["6/25","6/26","6/27","6/28","6/29","6/30","7/01","7/02","7/03","7/04","7/05","7/06","7/07","7/08","7/09","7/10","7/11","7/12","7/13"],
   datasets:[
@@ -543,7 +621,6 @@ new Chart(document.getElementById('cUgc'),{
    y:{position:'left',ticks:{callback:v=>(v/10000)+'万'},grid:{color:grid},title:{display:true,text:'互动量'}},
    y2:{position:'right',grid:{display:false},title:{display:true,text:'帖子数'}}}}});
 
-/* 前后对比 分组柱(归一化为倍数展示各自量级用双数据) */
 new Chart(document.getElementById('cCmp'),{type:'bar',
  data:{labels:["PCU(万)","UGC互动(万)","Twitch观看(万h)"],
   datasets:[
@@ -554,7 +631,6 @@ new Chart(document.getElementById('cCmp'),{type:'bar',
    tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.parsed.y}}},
   scales:{x:{grid:{display:false}},y:{type:'logarithmic',grid:{color:grid},title:{display:true,text:'对数轴（量级差异大）'}}}}});
 
-/* Twitch 双线(暗底) */
 new Chart(document.getElementById('cTwitch'),{
  data:{labels:["7/01","7/02","7/03","7/04","7/05","7/06","7/07","7/08","7/09","7/10","7/11","7/12"],
   datasets:[
@@ -566,11 +642,21 @@ new Chart(document.getElementById('cTwitch'),{
    y:{position:'left',ticks:{color:'#cc785c'},grid:{color:gridD},title:{display:true,text:'观看(万小时)',color:mutedD}},
    y2:{position:'right',ticks:{color:'#5db8a6'},grid:{display:false},title:{display:true,text:'峰值观众(万人)',color:mutedD}}}}});
 
-/* 平台分布 */
-new Chart(document.getElementById('cPlat'),{type:'doughnut',
- data:{labels:['Twitter','YouTube','TikTok','Instagram','Reddit','其他'],
-  datasets:[{data:[1541,549,367,264,251,60],backgroundColor:['#cc785c','#e8a55a','#5db8a6','#dccbb0','#b4b2a9','#8e8b82'],borderColor:'#faf9f5',borderWidth:2}]},
- options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{boxWidth:11,font:{size:12},padding:9}}}}});
+new Chart(document.getElementById('cPlat'),{
+ data:{labels:['Twitter','YouTube','TikTok','Instagram','Reddit','Facebook'],
+  datasets:[
+   {type:'bar',data:[1128,716,513,180,99,46],backgroundColor:'#dccbb0',yAxisID:'y',order:9},
+   {type:'line',data:[72,85,189,43,6,4.5],borderColor:'#cc785c',backgroundColor:'#cc785c',tension:0.3,pointRadius:3,pointBackgroundColor:'#cc785c',borderWidth:2,yAxisID:'y2'}
+  ]},
+ options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false}},
+  scales:{x:{grid:{display:false}},
+   y:{position:'left',grid:{color:grid},title:{display:true,text:'帖子数'}},
+   y2:{position:'right',grid:{display:false},title:{display:true,text:'互动量(万)'}}}}});
+
+new Chart(document.getElementById('cTier'),{type:'doughnut',
+ data:{labels:['头部(约50人)','腰部(约350人)','长尾(约2000人)'],
+  datasets:[{data:[50,356,2000],backgroundColor:['#cc785c','#e8a55a','#5db8a6'],borderColor:'#1f1e1b',borderWidth:2}]},
+ options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:'#a09d96',boxWidth:11,font:{size:11},padding:8}}}}});
 </script>
 </body>
 </html>
