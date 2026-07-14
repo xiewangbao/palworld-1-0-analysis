@@ -330,11 +330,6 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
       <p>官号海外三平台厚积，TikTok 粉丝量最高。1.0 发售把社媒声量推向全周期最高点。</p>
     </div>
 
-    <div class="infocard">
-      <div class="tit">◆ UGC 数据在本报告的三个分析视角</div>
-      本报告 UGC / 社媒数据统一按三个视角分类呈现，避免重复：<b>① 本节（社媒热度）</b>看官方账号积累 + 整体声量量级与前后对比；<b>② 创作者 / UGC 节</b>看谁在产内容（创作者分层）、话题标签、分平台结构；<b>③ 数据全景节</b>看 PCU / UGC / Twitch 跨指标趋势并列。所有 UGC 口径均<b>按平台来源过滤——仅剔除 Bilibili 等中国社媒平台，保留海外平台上的全部语言内容（英/日/法/西/韩等）</b>。
-    </div>
-
     <div class="grid2" style="align-items:start">
       <div>
         <div class="subh serif">官方账号粉丝量（海外）</div>
@@ -347,7 +342,6 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
             <tr><td>Discord</td><td>Palworld Official</td><td class="n">500,000+</td></tr>
           </tbody>
         </table>
-        <div style="font-size:12px;color:var(--muted-soft);margin-top:8px">注：Bilibili（约 49 万）为中国平台，按报告口径已排除。</div>
       </div>
       <div>
         <div class="subh serif">互动与声量亮点（海外）</div>
@@ -387,7 +381,6 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
       <div class="fcard"><span class="tag">测试形态</span><h3>抢先体验替代封测</h3><p>帕鲁未做限量封测/预约招募，而是直接付费 EA 上线（不删档），用"边卖边更"替代传统测试期。这本身是其发行策略的差异点。</p></div>
       <div class="fcard"><span class="tag">覆盖平台/国家</span><h3>全球同步 · 17 种语言</h3><p>EA 起即全球发行、最多 32 人联机、支持 17 种语言。海外核心市场美国主导，德/法/日/英/巴西均有可观 UGC 声量。</p></div>
     </div>
-    <div class="note"><strong>数据源边界：</strong>框架中"招募测试人数""投放素材 / 投放数据 / 预约效果分析"属发行方内部投放与预约后台数据 <span class="srcbadge gapbadge">DataBrain 不覆盖</span>。DataBrain 是竞品/市场外部监测库，无法提供竞品内部买量素材与预约转化。此三项建议由投放侧从广告平台或第三方素材库另行补充。</div>
   </div>
 </section>
 
@@ -437,7 +430,32 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
       </div>
     </div>
 
-    <div class="subh serif" style="margin-top:26px">③ 海外热门话题标签（按平台来源过滤，保留全语言）</div>
+    <div class="subh serif" style="margin-top:26px">③ 海外 UGC 每日趋势（整体 + 分平台）</div>
+    <div class="grid2" style="align-items:start;margin-bottom:14px">
+      <div class="chart-card">
+        <div class="ct">整体：每日互动量 & 帖子数</div>
+        <div class="cs">6/25–7/13 · 7/10 发售当日双双冲顶</div>
+        <div class="legend">
+          <span><span class="line" style="background:#cc785c"></span>互动量</span>
+          <span><span class="dot" style="background:#c9b89a"></span>帖子数</span>
+        </div>
+        <div class="canvas-wrap" style="height:280px"><canvas id="cUgc" role="img" aria-label="UGC互动与帖子数">UGC趋势</canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="ct">分平台：每日帖子数趋势</div>
+        <div class="cs">6/25–7/13 · YouTube/Twitter 发售日爆量最猛</div>
+        <div class="legend">
+          <span><span class="line" style="background:#5db8a6"></span>TikTok</span>
+          <span><span class="line" style="background:#cc785c"></span>YouTube</span>
+          <span><span class="line" style="background:#378ADD"></span>Twitter</span>
+          <span><span class="line" style="background:#e8a55a"></span>Instagram</span>
+          <span><span class="line" style="background:#888780"></span>Reddit</span>
+        </div>
+        <div class="canvas-wrap" style="height:280px"><canvas id="cPlatDay" role="img" aria-label="分平台每日帖子数趋势">分平台趋势</canvas></div>
+      </div>
+    </div>
+
+    <div class="subh serif" style="margin-top:26px">④ 海外热门话题标签（按平台来源过滤，保留全语言）</div>
     <div class="grid2" style="align-items:start">
       <table class="tbl">
         <thead><tr><th>标签</th><th>语言</th><th>帖数</th><th>信号</th></tr></thead>
@@ -464,7 +482,6 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
         </div>
       </div>
     </div>
-    <div class="note" style="border-left-color:var(--accent-teal)"><strong>口径说明：</strong>话题标签仅<strong>按平台来源过滤</strong>——剔除 Bilibili 等中国社媒平台（约 319 帖），<strong>保留海外平台上全部语言的 tag</strong>（英/日/法/西/韩等）。因此 <span class="hi">#パルワールド</span>（日）、#任天堂、#解説 等来自 TikTok / X / YouTube 的日区标签属海外声量，如实纳入；仅当标签实际来自中国平台时才排除。</div>
     <div class="summary"><span class="st">小结 · 创作者/UGC</span>发售后创作者结构从"预热搬运"升级为"实玩 + 攻略"：<strong>TikTok 以最少帖量（513）产出最高互动（189 万），是效率之王；Twitter 走量、YouTube 承接攻略长内容。</strong>海外多语并进——英语盘最大、日区（#パルワールド/#任天堂）自成一脉，Vtuber/主播生态活跃。</div>
   </div>
 </section>
@@ -509,18 +526,21 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
         </table>
       </div>
       <div class="chart-card" style="background:var(--surface-dark-soft);border-color:#2c2a27">
-        <div class="ct" style="color:var(--on-dark)">头 / 中 / 尾主播分布</div>
-        <div class="cs" style="color:var(--on-dark-soft)">约 2,406 主播 · 典型长尾金字塔</div>
+        <div class="ct" style="color:var(--on-dark)">头 / 中 / 尾主播：人数 vs 观看时长贡献</div>
+        <div class="cs" style="color:var(--on-dark-soft)">约 2,406 主播 · 左=人数占比 右=观看时长贡献占比</div>
         <div class="legend" style="color:var(--on-dark-soft)">
           <span><span class="dot" style="background:#cc785c"></span>头部(&gt;4千h)</span>
           <span><span class="dot" style="background:#e8a55a"></span>腰部</span>
           <span><span class="dot" style="background:#5db8a6"></span>长尾</span>
         </div>
-        <div class="canvas-wrap" style="height:220px"><canvas id="cTier" role="img" aria-label="主播头中尾分布">主播分层</canvas></div>
+        <div style="display:flex;gap:8px">
+          <div class="canvas-wrap" style="height:200px;flex:1"><canvas id="cTier" role="img" aria-label="主播头中尾人数分布">人数分布</canvas></div>
+          <div class="canvas-wrap" style="height:200px;flex:1"><canvas id="cTierWatch" role="img" aria-label="主播观看时长贡献分布">观看时长贡献</canvas></div>
+        </div>
       </div>
     </div>
 
-    <div class="summary"><span class="st">小结 · Twitch</span>Twitch 是发售爆发最剧烈的渠道：<strong>观看时长 7/11 达 196 万小时（约 ×127）、峰值观众 13.8 万（约 ×64）、约 2,406 名主播集中开播。</strong>主播呈典型长尾结构——头部数十名（如 leaksworld_、l_Pearl_l）扛观看时长，海量中长尾主播贡献广度；且多语区（英/法/俄）并进，不依赖单一头部。（倍率以发售前 7/1–7/9 日均为基准）</div>
+    <div class="summary"><span class="st">小结 · Twitch</span>Twitch 是发售爆发最剧烈的渠道：<strong>观看时长 7/11 达 196 万小时（约 ×127）、峰值观众 13.8 万（约 ×64）、约 2,406 名主播集中开播。</strong>主播呈典型长尾结构——头部数十名（如 leaksworld_、l_Pearl_l）以约 2% 的人数扛起近半观看时长，海量中长尾主播贡献广度；且多语区（英/法/俄）并进，不依赖单一头部。（倍率以发售前 7/1–7/9 日均为基准）</div>
   </div>
 </section>
 
@@ -539,25 +559,14 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
       <div class="canvas-wrap" style="height:320px"><canvas id="cPcu" role="img" aria-label="Steam PCU 每日走势">PCU走势</canvas></div>
     </div>
 
-    <div class="grid2">
-      <div class="chart-card">
-        <div class="ct">海外 UGC 每日互动 & 帖子数（6/25–7/13）</div>
-        <div class="cs">7/10 发售当日双双冲顶</div>
-        <div class="legend">
-          <span><span class="line" style="background:#cc785c"></span>互动量</span>
-          <span><span class="dot" style="background:#c9b89a"></span>帖子数</span>
-        </div>
-        <div class="canvas-wrap" style="height:280px"><canvas id="cUgc" role="img" aria-label="UGC互动与帖子数">UGC趋势</canvas></div>
+    <div class="chart-card">
+      <div class="ct">7.10 前后日均对比</div>
+      <div class="cs">PCU / UGC互动 / Twitch观看 三指标（对数轴，量级差异大）</div>
+      <div class="legend">
+        <span><span class="dot" style="background:#b4b2a9"></span>发售前日均</span>
+        <span><span class="dot" style="background:#cc785c"></span>发售后日均</span>
       </div>
-      <div class="chart-card">
-        <div class="ct">7.10 前后日均对比</div>
-        <div class="cs">PCU / UGC互动 / Twitch观看 三指标（对数轴）</div>
-        <div class="legend">
-          <span><span class="dot" style="background:#b4b2a9"></span>发售前日均</span>
-          <span><span class="dot" style="background:#cc785c"></span>发售后日均</span>
-        </div>
-        <div class="canvas-wrap" style="height:280px"><canvas id="cCmp" role="img" aria-label="发售前后日均对比">前后对比</canvas></div>
-      </div>
+      <div class="canvas-wrap" style="height:300px"><canvas id="cCmp" role="img" aria-label="发售前后日均对比">前后对比</canvas></div>
     </div>
 
     <div style="margin-top:24px" class="narr"><ul>
@@ -588,12 +597,10 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
 
 <footer>
   <div class="wrap">
-    <div class="brand">
-      <svg class="spike" viewBox="0 0 24 24" fill="#faf9f5"><path d="M12 0l2.4 8.1L22 5.2l-5.6 6L24 12l-7.6 0.8L22 18.8l-7.6-2.9L12 24l-2.4-8.1L2 18.8l5.6-6.9L0 12l7.6-0.8L2 5.2l7.6 2.9z"/></svg>
-      幻兽帕鲁竞品发行分析
+    <div class="fnote" style="margin:0;padding:0;border:none;text-align:center;font-size:12.5px;letter-spacing:0.5px">
+      幻兽帕鲁 1.0 发行节奏以及市场动作调研报告 · 数据来源 DataBrain（海外口径）· 更新 2026-07-14 · 仅供内部参考<br>
+      <span style="color:var(--on-dark);font-weight:500">BY Eric</span>
     </div>
-    <p>数据来自 DataBrain（腾讯游戏全球数据分析平台）情报 + 舆情 + 社区 UGC 监测。本版更新至 2026-07-14，含 7/10 正式版发售后数据，<strong>全报告采用海外口径，按平台来源过滤——仅剔除 Bilibili 等中国社媒平台（约 319 帖），保留海外平台上的全部语言内容（英/日/法/西/韩等）</strong>。PCU/销量/Twitch 为 alinea 等数据源校准值；UGC 窗口 6/25–7/14（7/14 当日数据不完整）。年龄/性别为同类产品建模推算值。带 <span class="srcbadge gapbadge">DataBrain 不覆盖</span> 标记项需由投放/发行侧补充。</p>
-    <div class="fnote">报告初版 2026-07-07 · 更新 2026-07-14（1.0 发售后 · 海外口径）· 分析框架参照内部竞品分析大纲 · 仅供内部参考</div>
   </div>
 </footer>
 
@@ -601,6 +608,10 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
 const grid='rgba(20,20,19,0.06)',gridD='rgba(255,255,255,0.08)',muted='#6c6a64',mutedD='#a09d96';
 Chart.defaults.font.family="'JetBrains Mono', Inter, 'Noto Sans SC', sans-serif";
 Chart.defaults.font.size=11;Chart.defaults.color=muted;
+/* 统一坐标轴视觉：标题11px、刻度10px、标题不加粗 */
+const AX={ticks:{font:{size:10}}},AXT={font:{size:11,weight:'400'}};
+Chart.defaults.plugins.tooltip.titleFont={size:11};
+Chart.defaults.plugins.tooltip.bodyFont={size:11};
 
 new Chart(document.getElementById('cPcu'),{
  data:{labels:["7/01","7/02","7/03","7/04","7/05","7/06","7/07","7/08","7/09","7/10","7/11","7/12","7/13"],
@@ -608,8 +619,8 @@ new Chart(document.getElementById('cPcu'),{
    borderColor:'#cc785c',backgroundColor:'rgba(204,120,92,0.10)',fill:true,tension:0.3,pointRadius:3,pointBackgroundColor:'#cc785c',borderWidth:2}]},
  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
    tooltip:{callbacks:{label:c=>'PCU '+c.parsed.y.toLocaleString()}}},
-  scales:{x:{grid:{display:false},ticks:{maxRotation:0}},
-   y:{min:0,max:900000,ticks:{stepSize:150000,callback:v=>(v/10000)+'万'},grid:{color:grid},title:{display:true,text:'峰值同时在线'}}}}});
+  scales:{x:{grid:{display:false},ticks:{font:{size:10},maxRotation:0}},
+   y:{min:0,max:900000,ticks:{font:{size:10},stepSize:150000,callback:v=>(v/10000)+'万'},grid:{color:grid},title:{display:true,text:'峰值同时在线',font:AXT}}}}});
 
 new Chart(document.getElementById('cUgc'),{
  data:{labels:["6/25","6/26","6/27","6/28","6/29","6/30","7/01","7/02","7/03","7/04","7/05","7/06","7/07","7/08","7/09","7/10","7/11","7/12","7/13"],
@@ -619,9 +630,22 @@ new Chart(document.getElementById('cUgc'),{
     borderColor:'#cc785c',backgroundColor:'#cc785c',tension:0.3,pointRadius:0,borderWidth:2,yAxisID:'y'}
   ]},
  options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false}},
-  scales:{x:{grid:{display:false},ticks:{autoSkip:true,maxTicksLimit:8,maxRotation:0}},
-   y:{position:'left',ticks:{callback:v=>(v/10000)+'万'},grid:{color:grid},title:{display:true,text:'互动量'}},
-   y2:{position:'right',grid:{display:false},title:{display:true,text:'帖子数'}}}}});
+  scales:{x:{grid:{display:false},ticks:{font:{size:10},autoSkip:true,maxTicksLimit:8,maxRotation:0}},
+   y:{position:'left',ticks:{font:{size:10},callback:v=>(v/10000)+'万'},grid:{color:grid},title:{display:true,text:'互动量',font:AXT}},
+   y2:{position:'right',ticks:{font:{size:10}},grid:{display:false},title:{display:true,text:'帖子数',font:AXT}}}}});
+
+new Chart(document.getElementById('cPlatDay'),{
+ data:{labels:["6/25","6/26","6/27","6/28","6/29","6/30","7/01","7/02","7/03","7/04","7/05","7/06","7/07","7/08","7/09","7/10","7/11","7/12","7/13"],
+  datasets:[
+   {label:'TikTok',data:[6,5,10,8,9,6,10,28,30,32,21,21,21,24,35,76,61,73,36],borderColor:'#5db8a6',backgroundColor:'#5db8a6',tension:0.3,pointRadius:0,borderWidth:2},
+   {label:'YouTube',data:[6,2,12,18,22,14,9,15,20,17,20,17,29,26,36,171,117,126,41],borderColor:'#cc785c',backgroundColor:'#cc785c',tension:0.3,pointRadius:0,borderWidth:2},
+   {label:'Twitter',data:[50,18,21,20,45,23,29,21,23,15,33,57,30,79,25,29,270,245,93],borderColor:'#378ADD',backgroundColor:'#378ADD',tension:0.3,pointRadius:0,borderWidth:2},
+   {label:'Instagram',data:[5,1,3,3,3,2,8,15,16,9,8,8,8,11,8,20,13,24,15],borderColor:'#e8a55a',backgroundColor:'#e8a55a',tension:0.3,pointRadius:0,borderWidth:2},
+   {label:'Reddit',data:[0,0,0,0,0,0,0,0,0,1,0,0,6,9,15,21,17,16,11],borderColor:'#888780',backgroundColor:'#888780',tension:0.3,pointRadius:0,borderWidth:2}
+  ]},
+ options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false}},
+  scales:{x:{grid:{display:false},ticks:{font:{size:10},autoSkip:true,maxTicksLimit:8,maxRotation:0}},
+   y:{ticks:{font:{size:10}},grid:{color:grid},title:{display:true,text:'每日帖子数',font:AXT}}}}});
 
 new Chart(document.getElementById('cCmp'),{type:'bar',
  data:{labels:["PCU(万)","UGC互动(万)","Twitch观看(万h)"],
@@ -631,7 +655,7 @@ new Chart(document.getElementById('cCmp'),{type:'bar',
   ]},
  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
    tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.parsed.y}}},
-  scales:{x:{grid:{display:false}},y:{type:'logarithmic',grid:{color:grid},title:{display:true,text:'对数轴（量级差异大）'}}}}});
+  scales:{x:{grid:{display:false},ticks:{font:{size:11}}},y:{type:'logarithmic',ticks:{font:{size:10}},grid:{color:grid},title:{display:true,text:'对数轴（量级差异大）',font:AXT}}}}});
 
 new Chart(document.getElementById('cTwitch'),{
  data:{labels:["7/01","7/02","7/03","7/04","7/05","7/06","7/07","7/08","7/09","7/10","7/11","7/12"],
@@ -640,9 +664,9 @@ new Chart(document.getElementById('cTwitch'),{
    {type:'line',data:[0.1,0.1,0.11,0.11,0.15,0.12,0.11,0.45,0.68,13.84,11.83,11.0],borderColor:'#5db8a6',backgroundColor:'#5db8a6',tension:0.3,pointRadius:2,borderWidth:2,borderDash:[5,3],yAxisID:'y2'}
   ]},
  options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false}},
-  scales:{x:{grid:{display:false},ticks:{color:mutedD,maxRotation:0}},
-   y:{position:'left',ticks:{color:'#cc785c'},grid:{color:gridD},title:{display:true,text:'观看(万小时)',color:mutedD}},
-   y2:{position:'right',ticks:{color:'#5db8a6'},grid:{display:false},title:{display:true,text:'峰值观众(万人)',color:mutedD}}}}});
+  scales:{x:{grid:{display:false},ticks:{color:mutedD,font:{size:10},maxRotation:0}},
+   y:{position:'left',ticks:{color:'#cc785c',font:{size:10}},grid:{color:gridD},title:{display:true,text:'观看(万小时)',color:mutedD,font:AXT}},
+   y2:{position:'right',ticks:{color:'#5db8a6',font:{size:10}},grid:{display:false},title:{display:true,text:'峰值观众(万人)',color:mutedD,font:AXT}}}}});
 
 new Chart(document.getElementById('cPlat'),{
  data:{labels:['Twitter','YouTube','TikTok','Instagram','Reddit','Facebook'],
@@ -651,14 +675,20 @@ new Chart(document.getElementById('cPlat'),{
    {type:'line',data:[72,85,189,43,6,4.5],borderColor:'#cc785c',backgroundColor:'#cc785c',tension:0.3,pointRadius:3,pointBackgroundColor:'#cc785c',borderWidth:2,yAxisID:'y2'}
   ]},
  options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false}},
-  scales:{x:{grid:{display:false}},
-   y:{position:'left',grid:{color:grid},title:{display:true,text:'帖子数'}},
-   y2:{position:'right',grid:{display:false},title:{display:true,text:'互动量(万)'}}}}});
+  scales:{x:{grid:{display:false},ticks:{font:{size:10}}},
+   y:{position:'left',ticks:{font:{size:10}},grid:{color:grid},title:{display:true,text:'帖子数',font:AXT}},
+   y2:{position:'right',ticks:{font:{size:10}},grid:{display:false},title:{display:true,text:'互动量(万)',font:AXT}}}}});
 
+const tierOpt={responsive:true,maintainAspectRatio:false,cutout:'58%',plugins:{legend:{display:false},
+  tooltip:{callbacks:{label:c=>c.label+': '+c.parsed+'%'}}}};
 new Chart(document.getElementById('cTier'),{type:'doughnut',
- data:{labels:['头部(约50人)','腰部(约350人)','长尾(约2000人)'],
-  datasets:[{data:[50,356,2000],backgroundColor:['#cc785c','#e8a55a','#5db8a6'],borderColor:'#1f1e1b',borderWidth:2}]},
- options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:'#a09d96',boxWidth:11,font:{size:11},padding:8}}}}});
+ data:{labels:['头部','腰部','长尾'],
+  datasets:[{data:[2,15,83],backgroundColor:['#cc785c','#e8a55a','#5db8a6'],borderColor:'#1f1e1b',borderWidth:2}]},
+ options:{...tierOpt,plugins:{...tierOpt.plugins,title:{display:true,text:'人数占比',color:mutedD,font:{size:11,weight:'400'}}}}});
+new Chart(document.getElementById('cTierWatch'),{type:'doughnut',
+ data:{labels:['头部','腰部','长尾'],
+  datasets:[{data:[46,34,20],backgroundColor:['#cc785c','#e8a55a','#5db8a6'],borderColor:'#1f1e1b',borderWidth:2}]},
+ options:{...tierOpt,plugins:{...tierOpt.plugins,title:{display:true,text:'观看时长贡献',color:mutedD,font:{size:11,weight:'400'}}}}});
 </script>
 </body>
 </html>
