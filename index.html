@@ -161,7 +161,38 @@ footer .brand{color:var(--on-dark);margin-bottom:16px}
 footer p{font-size:13px;line-height:1.7;max-width:82ch}
 footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font-size:12px;color:var(--on-dark-soft)}
 
+/* 舆情总览：发售前后对比组件 */
+.sent-wrap{margin:8px 0 4px}
+.sbar-row{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.sbar-tag{flex:0 0 118px;text-align:right;font-size:13px;font-weight:600;color:var(--ink);line-height:1.25}
+.sbar-tag span{display:block;font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:11px;font-weight:400;color:var(--muted-soft);margin-top:3px}
+.sbar{flex:1;display:flex;height:42px;border-radius:8px;overflow:hidden;font-size:12.5px;font-weight:600}
+.sbar .seg{display:flex;align-items:center;justify-content:center;color:#fff;white-space:nowrap;font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:.3px}
+.sbar .pos{background:#5db872}
+.sbar .neu{background:#c3a878;color:#faf9f5}
+.sbar .neg{background:#cc5b52}
+.sent-legend{display:flex;gap:20px;justify-content:flex-end;font-size:12px;color:var(--muted);margin-top:2px}
+.sent-legend span{display:flex;align-items:center;gap:6px}
+.sent-legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.scard{border-radius:12px;padding:18px 20px;background:var(--surface-card)}
+.scard.pos{border-left:4px solid #5db872}
+.scard.neu{border-left:4px solid #c3a878}
+.scard.neg{border-left:4px solid #cc5b52}
+.scard .sh{font-family:var(--sans);font-weight:600;color:var(--ink);font-size:14.5px;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.scard .delta{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:12px;font-weight:500;padding:1px 8px;border-radius:9999px}
+.scard .delta.dn{color:#a9583e;background:rgba(204,120,92,0.14)}
+.scard .delta.upn{color:#c0453c;background:rgba(204,91,82,0.14)}
+.scard .delta.up{color:#3f9256;background:rgba(93,184,114,0.16)}
+.scard .sb{font-size:13.5px;line-height:1.62;color:var(--body)}
+.narrative-dark{background:var(--surface-dark);color:var(--on-dark);border-radius:12px;padding:26px 30px;margin-top:22px}
+.narrative-dark .nt{font-family:var(--sans);font-weight:600;font-size:14px;color:var(--accent-amber);margin-bottom:12px;letter-spacing:.3px}
+.narrative-dark p{font-size:14.5px;line-height:1.72;color:var(--on-dark-soft)}
+.narrative-dark p strong{color:var(--on-dark);font-weight:600}
+.narrative-dark .quote{color:#e8c9a0;font-style:italic}
 @media(max-width:860px){
+.sbar-row{flex-direction:column;align-items:stretch;gap:6px}
+.sbar-tag{text-align:left;flex:none}
+.sent-legend{justify-content:flex-start}
 .heroimg{height:280px}
 .heroimg .title-on-img{font-size:28px}
 .heroimg .cap .wrap{flex-direction:column;align-items:flex-start;gap:10px}
@@ -482,7 +513,52 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
         </div>
       </div>
     </div>
-    <div class="summary"><span class="st">小结 · 创作者/UGC</span>发售后创作者结构从"预热搬运"升级为"实玩 + 攻略"：<strong>TikTok 以最少帖量（513）产出最高互动（189 万），是效率之王；Twitter 走量、YouTube 承接攻略长内容。</strong>海外多语并进——英语盘最大、日区（#パルワールド/#任天堂）自成一脉，Vtuber/主播生态活跃。</div>
+    <div class="subh serif" style="margin-top:30px">④ 用户评论与舆情总览 · 开服（7.10 发售）前后对比 <span style="font-size:13px;color:var(--muted-soft);font-family:var(--sans)">纯海外口径 · 6/25~7/13</span></div>
+    <div class="sent-wrap">
+      <div class="sbar-row">
+        <div class="sbar-tag">开服前<span>6/25–7/9 · 946 条</span></div>
+        <div class="sbar">
+          <div class="seg pos" style="width:45%">正面 45%</div>
+          <div class="seg neu" style="width:48%">中性 48%</div>
+          <div class="seg neg" style="width:7%">7%</div>
+        </div>
+      </div>
+      <div class="sbar-row">
+        <div class="sbar-tag">开服后<span>7/10–7/13 · 1,612 条</span></div>
+        <div class="sbar">
+          <div class="seg pos" style="width:38%">正面 38%</div>
+          <div class="seg neu" style="width:51%">中性 51%</div>
+          <div class="seg neg" style="width:11%">负面 11%</div>
+        </div>
+      </div>
+      <div class="sent-legend">
+        <span><i style="background:#5db872"></i>正面</span>
+        <span><i style="background:#c3a878"></i>中性</span>
+        <span><i style="background:#cc5b52"></i>负面</span>
+      </div>
+    </div>
+
+    <div class="grid3" style="margin-top:22px">
+      <div class="scard pos">
+        <div class="sh">正面 <span class="delta dn">45% → 38%（-7pt）</span></div>
+        <div class="sb">占比回落，但<strong>绝对量翻倍（429→615 条）</strong>。基调从预热期"画风治愈 / 期待发售"转为实玩后的高热惊叹——单帖 <strong>19.7 万赞</strong>「1.0 Made this a WHOLE different game」、「finally fixed the grind」。真玩家好评质量更高。</div>
+      </div>
+      <div class="scard neu">
+        <div class="sh">中性 <span class="delta up">48% → 51%（+3pt）</span></div>
+        <div class="sb">始终是主体。开服前多为"配置/发售日/平台"咨询；<strong>开服后转向实玩分享、攻略求助、新帕鲁展示</strong>（如 Rayquaza 同人、繁殖教程），是内容进入自运转的健康信号。</div>
+      </div>
+      <div class="scard neg">
+        <div class="sh">负面 <span class="delta upn">7% → 11%（+4pt）</span></div>
+        <div class="sb">占比与绝对量双升（63→171 条）。集中在<strong>实玩后的 bug / 崩溃 / 掉线</strong>（「started my playthrough only for the game to completely…」4.5 万赞）、<strong>专用服务器无人</strong>、难度与养成节奏吐槽。属发售期典型阵痛。</div>
+      </div>
+    </div>
+
+    <div class="narrative-dark">
+      <div class="nt">◆ 开服后的舆情新叙事 · 声量翻倍下的"期待 → 分化"</div>
+      <p>与常见的"发售后负面下降"不同，帕鲁走的是<strong>声量翻倍、情绪分化</strong>的路径：UGC 从 946 条跳到 1,612 条，但玩家从"隔岸期待"进入"真上手检验"——<strong>正面回落 7pt、负面上升 4pt</strong>。这不是口碑崩坏，而是<span class="quote">"叫好"与"挑刺"同时被放大</span>：一端是 TikTok 上「Made this a WHOLE different game」（19.7 万赞）这类兑现型好评，另一端是「completely…崩溃」「专用服务器没人上」「hurting my soul」等实玩阵痛。<strong>启示：发售冲刺期的口碑管理重点应从"造期待"切换到"接问题"——bug 修复节奏 + 服务器稳定性 + 新手引导，直接决定这 11% 负面是否继续扩大。</strong></p>
+    </div>
+
+    <div class="summary"><span class="st">小结 · 创作者/UGC</span>发售后创作者结构从"预热搬运"升级为"实玩 + 攻略"：<strong>TikTok 以最少帖量（513）产出最高互动（189 万），是效率之王；Twitter 走量、YouTube 承接攻略长内容。</strong>海外多语并进——英语盘最大、日区（#パルワールド/#任天堂）自成一脉，Vtuber/主播生态活跃。舆情上呈<strong>"声量翻倍、情绪分化"</strong>——正面质量提升但负面（bug/服务器）同步放大，需重点承接。</div>
   </div>
 </section>
 
