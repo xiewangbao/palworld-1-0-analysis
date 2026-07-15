@@ -765,7 +765,7 @@ new Chart(document.getElementById('cUgc'),{
    y:{position:'left',ticks:{font:{size:10},callback:v=>(v/10000)+'万'},grid:{color:grid},title:{display:true,text:'互动量',font:AXT}},
    y2:{position:'right',ticks:{font:{size:10}},grid:{display:false},title:{display:true,text:'帖子数',font:AXT}}}}});
 
-new Chart(document.getElementById('cPlatDay'),{
+new Chart(document.getElementById('cPlatDay'),{type:'line',
  data:{labels:["6/25","6/26","6/27","6/28","6/29","6/30","7/01","7/02","7/03","7/04","7/05","7/06","7/07","7/08","7/09","7/10","7/11","7/12","7/13"],
   datasets:[
    {label:'TikTok',data:[6,5,10,8,9,6,10,28,30,32,21,21,21,24,35,76,61,73,36],borderColor:'#5db8a6',backgroundColor:'#5db8a6',tension:0.3,pointRadius:0,borderWidth:2},
