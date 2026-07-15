@@ -587,11 +587,30 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
         </table>
       </div>
     </div>
-    <div class="note" style="border-left-color:var(--accent-teal)"><strong>双源交叉印证：</strong>Steam 评测好评率（<span class="num">95.2% → 92.2%</span>）与上方社媒 UGC 正面占比（<span class="num">45% → 38%</span>）走势高度一致——两个<strong>相互独立</strong>的数据源共同指向"量增质稳、好评率小幅回落"，结论更可靠。评测量发售当日 ×5（199→1,861 篇/日），综合评级始终维持"好评如潮"。</div>
+
+    <div class="subh serif" style="margin-top:26px">全量评论细分 · 实采 10,243 条 Steam 评论双口径分析 <span style="font-size:13px;color:var(--muted-soft);font-family:var(--sans)">7/1–7/14 · BigQuery 全量直查</span></div>
+    <div class="grid2" style="align-items:start">
+      <table class="tbl">
+        <thead><tr><th>口径</th><th>开服前(7.1–7.9)</th><th>开服后(7.10–7.14)</th><th>变化</th></tr></thead>
+        <tbody>
+          <tr><td>实采评论数</td><td class="n">1,747</td><td class="n hi">8,496</td><td class="n">×4.9</td></tr>
+          <tr><td>Steam 推荐率（is_recommend）</td><td class="n">95.5%</td><td class="n">92.2%</td><td class="n">-3.3pt</td></tr>
+          <tr><td>NLP 正面占比</td><td class="n">73.7%</td><td class="n">71.8%</td><td class="n">-1.9pt</td></tr>
+          <tr><td>NLP 负面占比</td><td class="n">6.7%</td><td class="n">9.9%</td><td class="n">+3.2pt</td></tr>
+        </tbody>
+      </table>
+      <div class="infocard" style="margin:0">
+        <div class="tit">◆ 两种"好评率"口径差异（勿混用）</div>
+        <b>Steam 推荐率 92.2%</b>（玩家点"推荐/不推荐"的原生机制，与商店页 94% 同源）远高于 <b>NLP 正面 71.8%</b>（模型对评论文本的情绪判定）。差值来自：许多玩家<strong>「推荐但吐槽」</strong>——正文含 bug/抱怨（NLP 判中性/负面），但仍点了推荐。两口径都真实，商店门面看推荐率、口碑质量看 NLP。
+      </div>
+    </div>
+    <div class="note" style="border-left-color:var(--accent-teal)"><strong>玩家真实评论侧写（开服后差评集中点）：</strong>高赞差评集中在<strong>实玩阵痛</strong>——bug/崩溃、专用服务器无人、养成/繁殖节奏；高赞好评则多为长篇"真香"评测——「曾经的创意半成品，如今终于长熟了」「从玩梗狂欢到成熟的开放世界生存游戏」，并坦承"缝合但好玩"。差评量翻倍但推荐率仍稳 92%，属发售期健康阵痛。</div>
+
+    <div class="note" style="border-left-color:var(--accent-teal)"><strong>三源交叉印证：</strong>Steam 推荐率（<span class="num">95.5% → 92.2%</span>）、Steam 全量评论 NLP 正面（<span class="num">73.7% → 71.8%</span>）、社媒 UGC 正面（<span class="num">45% → 38%</span>）——三个<strong>相互独立</strong>的数据源同步指向"量增质稳、好评率小幅回落"，结论高度可靠。评测量发售当日 ×5（199→1,861 篇/日），综合评级始终"好评如潮"。</div>
 
     <div class="narrative-dark">
       <div class="nt">◆ 开服后的舆情新叙事 · 声量翻倍下的"期待 → 分化"</div>
-      <p>与常见的"发售后负面下降"不同，帕鲁走的是<strong>声量翻倍、情绪分化</strong>的路径：社媒 UGC 从 946 条跳到 1,612 条、Steam 评测日均 199→1,699 篇，但玩家从"隔岸期待"进入"真上手检验"——<strong>社媒正面回落 7pt、Steam 好评率回落 3pt，两源同步</strong>。这不是口碑崩坏，而是<span class="quote">"叫好"与"挑刺"同时被放大</span>：一端是 TikTok 上「Made this a WHOLE different game」（19.7 万赞）这类兑现型好评，另一端是「completely…崩溃」「专用服务器没人上」「hurting my soul」等实玩阵痛。<strong>启示：发售冲刺期的口碑管理重点应从"造期待"切换到"接问题"——bug 修复节奏 + 服务器稳定性 + 新手引导，直接决定这波负面是否继续扩大。</strong></p>
+      <p>与常见的"发售后负面下降"不同，帕鲁走的是<strong>声量翻倍、情绪分化</strong>的路径：社媒 UGC 从 946 条跳到 1,612 条、Steam 评测日均 199→1,699 篇，但玩家从"隔岸期待"进入"真上手检验"——<strong>社媒正面回落 7pt、Steam 推荐率回落 3pt、Steam 评论 NLP 正面回落 2pt，三源同步</strong>。这不是口碑崩坏，而是<span class="quote">"叫好"与"挑刺"同时被放大</span>：一端是 TikTok 上「Made this a WHOLE different game」（19.7 万赞）与 Steam 长篇"真香"评测（「创意半成品终于长熟了」），另一端是「completely…崩溃」「专用服务器没人上」「hurting my soul」等实玩阵痛。<strong>启示：发售冲刺期的口碑管理重点应从"造期待"切换到"接问题"——bug 修复节奏 + 服务器稳定性 + 新手引导，直接决定这波负面是否继续扩大。</strong></p>
     </div>
 
     <div class="summary"><span class="st">小结 · 创作者/UGC</span>发售后创作者结构从"预热搬运"升级为"实玩 + 攻略"：<strong>TikTok 以最少帖量（513）产出最高互动（189 万），是效率之王；Twitter 走量、YouTube 承接攻略长内容。</strong>海外多语并进——英语盘最大、日区（#パルワールド/#任天堂）自成一脉，Vtuber/主播生态活跃。舆情上<strong>社媒 + Steam 双源共同印证"声量翻倍、情绪分化"</strong>——正面质量提升但负面（bug/服务器）同步放大，需重点承接。</div>
