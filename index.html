@@ -60,7 +60,7 @@ a{color:var(--primary);text-decoration:none}
 .metric .s{font-size:12px;color:var(--muted-soft);margin-top:8px}
 .metric .s.up{color:var(--primary);font-weight:500}
 
-section{padding:64px 0}
+section{padding:64px 0;scroll-margin-top:76px}
 .sec-head{margin-bottom:32px}
 .sec-head .num-t{font-family:var(--serif);font-size:15px;color:var(--primary)}
 .sec-head h2{font-size:34px;line-height:1.14;letter-spacing:-1px;margin-top:6px}
@@ -233,6 +233,28 @@ section{padding:44px 0}
 section{padding:36px 0}
 body{font-size:15px}
 }
+
+/* 移动端悬浮章节导航（跳转 + 各 part 预览，桌面端隐藏） */
+.jumpfab{display:none}
+@media(max-width:860px){
+.jumpfab{display:flex;position:fixed;right:16px;bottom:20px;z-index:80;align-items:center;justify-content:center;
+  width:52px;height:52px;border-radius:50%;background:var(--primary);color:#fff;border:none;cursor:pointer;
+  box-shadow:0 6px 20px rgba(204,120,92,0.45);transition:transform .2s}
+.jumpfab:active{transform:scale(0.92)}
+.jumpfab svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round}
+.jump-overlay{display:none;position:fixed;inset:0;z-index:79;background:rgba(20,20,19,0.5);backdrop-filter:blur(2px)}
+.jump-overlay.open{display:block}
+.jump-panel{position:fixed;right:14px;bottom:82px;z-index:81;width:min(320px,calc(100vw - 28px));max-height:70vh;overflow-y:auto;
+  background:var(--canvas);border:1px solid var(--hairline);border-radius:16px;box-shadow:0 12px 40px rgba(20,20,19,0.28);
+  padding:10px;transform:translateY(12px) scale(0.97);opacity:0;pointer-events:none;transition:all .22s ease}
+.jump-panel.open{transform:translateY(0) scale(1);opacity:1;pointer-events:auto}
+.jump-panel .jp-head{font-family:var(--serif);font-size:18px;color:var(--ink);padding:10px 12px 8px}
+.jump-item{display:flex;gap:11px;align-items:flex-start;padding:11px 12px;border-radius:11px;cursor:pointer;text-decoration:none;transition:background .15s}
+.jump-item:active{background:var(--surface-card)}
+.jump-item .jp-num{flex:0 0 auto;font-family:var(--mono);font-size:11px;font-weight:500;color:var(--primary);background:var(--surface-card);border-radius:7px;padding:3px 7px;margin-top:1px;min-width:34px;text-align:center}
+.jump-item .jp-txt .jp-t{font-family:var(--sans);font-weight:600;font-size:14px;color:var(--ink);line-height:1.3}
+.jump-item .jp-txt .jp-d{font-size:12px;color:var(--muted);line-height:1.45;margin-top:2px}
+}
 </style>
 </head>
 <body>
@@ -255,6 +277,23 @@ body{font-size:15px}
     <a href="#s8" class="navcta">核心结论</a>
   </div>
 </nav>
+
+<!-- 移动端悬浮章节导航（跳转 + 各 part 预览） -->
+<div class="jump-overlay" id="jumpOverlay"></div>
+<nav class="jump-panel" id="jumpPanel" aria-label="章节快速跳转">
+  <div class="jp-head">跳到章节</div>
+  <a class="jump-item" href="#s1"><span class="jp-num">01</span><span class="jp-txt"><span class="jp-t">发行节奏与定调</span><span class="jp-d">定档信息、发行节奏与关键节点</span></span></a>
+  <a class="jump-item" href="#s2"><span class="jp-num">02</span><span class="jp-txt"><span class="jp-t">定位、卖点与受众</span><span class="jp-d">核心卖点、三方口径对比、受众画像与游戏重合度</span></span></a>
+  <a class="jump-item" href="#s3"><span class="jp-num">03·1</span><span class="jp-txt"><span class="jp-t">社媒热度</span><span class="jp-d">官方账号粉丝积累与整体声量</span></span></a>
+  <a class="jump-item" href="#s4"><span class="jp-num">03·2</span><span class="jp-txt"><span class="jp-t">测试与预约</span><span class="jp-d">测试节奏与预约情况</span></span></a>
+  <a class="jump-item" href="#s5"><span class="jp-num">03·3</span><span class="jp-txt"><span class="jp-t">创作者与 UGC</span><span class="jp-d">头部创作者、分平台结构、话题标签与舆情总览</span></span></a>
+  <a class="jump-item" href="#s6"><span class="jp-num">03·4</span><span class="jp-txt"><span class="jp-t">Twitch 直播</span><span class="jp-d">发售即引爆的直播数据与主播结构</span></span></a>
+  <a class="jump-item" href="#s7"><span class="jp-num">04</span><span class="jp-txt"><span class="jp-t">数据全景与趋势</span><span class="jp-d">PCU / UGC / Twitch 全指标量级跃迁</span></span></a>
+  <a class="jump-item" href="#s8"><span class="jp-num">05</span><span class="jp-txt"><span class="jp-t">总体结论</span><span class="jp-d">给洛克海外发行的三点镜鉴</span></span></a>
+</nav>
+<button class="jumpfab" id="jumpFab" aria-label="章节导航">
+  <svg id="jumpIcon" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+</button>
 
 <div class="heroimg">
   <img src="assets/hero.jpg" alt="Palworld 幻兽帕鲁 官方主视觉 —— 帕鲁、枪械战斗与远处的世界树">
@@ -761,6 +800,25 @@ body{font-size:15px}
 </footer>
 
 <script>
+/* 移动端悬浮章节导航：开关 + 点击跳转后自动收起 + 图标切换 */
+(function(){
+  var fab=document.getElementById('jumpFab'),panel=document.getElementById('jumpPanel'),
+      ov=document.getElementById('jumpOverlay'),icon=document.getElementById('jumpIcon');
+  if(!fab) return;
+  var openIcon='<line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/>';
+  var closeIcon='<line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>';
+  function setOpen(o){
+    panel.classList.toggle('open',o);
+    ov.classList.toggle('open',o);
+    icon.innerHTML=o?closeIcon:openIcon;
+  }
+  fab.addEventListener('click',function(){setOpen(!panel.classList.contains('open'));});
+  ov.addEventListener('click',function(){setOpen(false);});
+  Array.prototype.forEach.call(panel.querySelectorAll('.jump-item'),function(a){
+    a.addEventListener('click',function(){setOpen(false);});
+  });
+})();
+
 const grid='rgba(20,20,19,0.06)',gridD='rgba(255,255,255,0.08)',muted='#6c6a64',mutedD='#a09d96';
 Chart.defaults.font.family="'JetBrains Mono', Inter, 'Noto Sans SC', sans-serif";
 Chart.defaults.font.size=11;Chart.defaults.color=muted;
