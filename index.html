@@ -75,6 +75,7 @@ section{padding:64px 0}
 
 .subh{font-family:var(--serif);font-size:22px;font-weight:500;margin-bottom:16px;margin-top:8px;color:var(--ink)}
 
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .tbl{width:100%;border-collapse:collapse;font-size:14px;background:var(--canvas);border-radius:12px;overflow:hidden;border:1px solid var(--hairline)}
 .tbl th{background:var(--surface-cream-strong);color:var(--ink);font-weight:500;text-align:left;padding:12px 16px;font-size:13px}
 .tbl td{padding:11px 16px;border-top:1px solid var(--hairline-soft);color:var(--body)}
@@ -91,6 +92,7 @@ section{padding:64px 0}
 .dot{width:11px;height:11px;border-radius:2px;display:inline-block}
 .line{width:16px;height:3px;display:inline-block;border-radius:2px}
 .canvas-wrap{position:relative;width:100%}
+.canvas-wrap canvas{max-width:100%}
 
 .cmp{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;background:var(--canvas);border:1px solid var(--hairline);border-radius:12px;overflow:hidden;margin:20px 0}
 .cmp .side{padding:20px 24px}
@@ -206,6 +208,30 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
 .cmp .arrow{padding:8px;transform:rotate(90deg)}
 .wrap{padding:0 20px}
 .callout{padding:30px}
+section{padding:44px 0}
+.chart-card{padding:20px 18px}
+.narrative-dark{padding:22px 20px}
+.canvas-wrap{height:240px!important}
+.dual-pie{gap:14px}
+.dual-pie .canvas-wrap{height:190px!important}
+}
+@media(max-width:560px){
+.metrics{gap:10px}
+.metric{padding:16px}
+.metric .v{font-size:24px}
+.heroimg{height:220px}
+.heroimg .title-on-img{font-size:22px;letter-spacing:-0.5px}
+.sec-head h2{font-size:22px}
+.subh{font-size:19px}
+.callout h2{font-size:24px}
+.callout li{font-size:14.5px}
+.callout{padding:24px 20px}
+.dual-pie{flex-direction:column}
+.sbar .seg{font-size:11px;letter-spacing:0}
+.legend{gap:10px;font-size:11px}
+.wrap{padding:0 16px}
+section{padding:36px 0}
+body{font-size:15px}
 }
 </style>
 </head>
@@ -269,7 +295,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
     </div>
 
     <div class="subh serif">定档信息</div>
-    <table class="tbl" style="margin-bottom:32px">
+    <div class="tbl-scroll"><table class="tbl" style="margin-bottom:32px">
       <thead><tr><th>阶段</th><th>时间</th><th>平台/说明</th></tr></thead>
       <tbody>
         <tr><td>抢先体验 EA（不删档）</td><td class="n">2024-01-19</td><td>PC (Steam) / Xbox / Game Pass 首发</td></tr>
@@ -277,7 +303,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
         <tr><td>EA 追加平台</td><td class="n">2025-03-03</td><td>Mac</td></tr>
         <tr><td>正式版 1.0（全球）</td><td class="n hi">2026-07-10 ✓</td><td>PC/PS5/Xbox/Mac，PS5 首发即 1.0，Game Pass Day One</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <div class="subh serif">发行节奏 · 重要节点</div>
     <div>
@@ -307,7 +333,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
     </div>
 
     <div class="subh serif">三方传播口径 × 卖点对比</div>
-    <table class="tbl" style="margin-bottom:20px">
+    <div class="tbl-scroll"><table class="tbl" style="margin-bottom:20px">
       <thead><tr><th>传播主体</th><th>强调的卖点</th><th>话语调性</th><th>典型信号</th></tr></thead>
       <tbody>
         <tr><td><strong>官方 Pocketpair</strong></td><td>世界树新区域 / 72 新帕鲁 / 跨平台 /「史上最大更新」</td><td>倒计时预热、逐日爆料</td><td>#palworld1.0 #palworldupdate</td></tr>
@@ -315,7 +341,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
         <tr><td><strong>KOL / 创作者</strong></td><td>实玩高光 / 新帕鲁展示 / 攻略教学 / 整活</td><td>gameplay + guide</td><td>#palworldguide #survivalgame</td></tr>
         <tr><td><strong>玩家 / UGC</strong></td><td>要不要重开档 / 新帕鲁可爱 / PS5 能玩了 / 对比宝可梦</td><td>期待 → 上手</td><td>#pokemon #xbox #steam</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <div class="note"><strong>口径洞察：</strong>官方主推"内容量与新区域"，但玩家自发讨论中 <span class="hi">#pokemon</span>（71 帖）仍是最大关联词——"宝可梦对标"是帕鲁绕不开的传播底色；KOL 侧则快速切入"攻略/实玩"，与官方"炫内容"形成互补。三方口径共同点是弱化争议、强化"回归/上手"。</div>
 
     <div class="subh serif" style="margin-top:36px">目标受众画像与游戏重合度</div>
@@ -327,7 +353,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
 
     <div class="subh serif">Steam 玩家重合度 Top（还在玩哪些游戏）</div>
     <div class="grid2" style="align-items:start">
-      <table class="tbl">
+      <div class="tbl-scroll"><table class="tbl">
         <thead><tr><th>重合游戏</th><th>重叠度</th><th>亲密度</th></tr></thead>
         <tbody>
           <tr><td>Monster Hunter: World</td><td class="n hi">38.80%</td><td class="n">3.46x</td></tr>
@@ -339,7 +365,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
           <tr><td>Crimson Desert</td><td class="n">8.92%</td><td class="n">3.84x</td></tr>
           <tr><td>Dune: Awakening</td><td class="n">6.97%</td><td class="n">4.30x</td></tr>
         </tbody>
-      </table>
+      </table></div>
       <div class="narr" style="padding-top:4px">
         <div style="font-size:13.5px;color:var(--muted);margin-bottom:8px">重叠度 = 帕鲁玩家中同时玩该作的比例；亲密度 = 相较普通用户的倍数偏好。</div>
         <ul>
@@ -364,7 +390,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
     <div class="grid2" style="align-items:start">
       <div>
         <div class="subh serif">官方账号粉丝量（海外）</div>
-        <table class="tbl">
+        <div class="tbl-scroll"><table class="tbl">
           <thead><tr><th>平台</th><th>官方账号</th><th>粉丝/订阅</th></tr></thead>
           <tbody>
             <tr><td>TikTok</td><td>palworld_official</td><td class="n hi">594,700</td></tr>
@@ -372,7 +398,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
             <tr><td>X (Twitter)</td><td>palworld_en</td><td class="n">454,538</td></tr>
             <tr><td>Discord</td><td>Palworld Official</td><td class="n">500,000+</td></tr>
           </tbody>
-        </table>
+        </table></div>
       </div>
       <div>
         <div class="subh serif">互动与声量亮点（海外）</div>
@@ -424,7 +450,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
     </div>
 
     <div class="subh serif">① 发售后（7/10 起）头部创作者（按互动）</div>
-    <table class="tbl" style="margin-bottom:28px">
+    <div class="tbl-scroll"><table class="tbl" style="margin-bottom:28px">
       <thead><tr><th>创作者</th><th>视频数</th><th>发售后互动</th><th>粉丝量</th><th>类型</th></tr></thead>
       <tbody>
         <tr><td>MuriloCZ（巴西）</td><td class="n">8</td><td class="n hi">161,021</td><td class="n">294,800</td><td>中腰部主力</td></tr>
@@ -433,7 +459,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
         <tr><td>Misleading</td><td class="n">21</td><td class="n">109,199</td><td class="n">235,300</td><td>高产腰部</td></tr>
         <tr><td>Dattrax Gaming（印区）</td><td class="n">4</td><td class="n">54,530</td><td class="n">3,240,000</td><td>头部大 KOL</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <div class="subh serif">② 海外内容分平台结构</div>
     <div class="grid2" style="align-items:start;margin-bottom:14px">
@@ -447,7 +473,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
         <div class="canvas-wrap" style="height:280px"><canvas id="cPlat" role="img" aria-label="分平台帖子数与互动量">分平台结构</canvas></div>
       </div>
       <div>
-        <table class="tbl">
+        <div class="tbl-scroll"><table class="tbl">
           <thead><tr><th>平台</th><th>帖数</th><th>互动</th><th>情绪(正/负)</th></tr></thead>
           <tbody>
             <tr><td>TikTok</td><td class="n">513</td><td class="n hi">189 万</td><td class="n">54% / 5%</td></tr>
@@ -456,7 +482,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
             <tr><td>Instagram</td><td class="n">180</td><td class="n">43 万</td><td class="n">46% / 4%</td></tr>
             <tr><td>Reddit</td><td class="n">99</td><td class="n">6 万</td><td class="n">30% / 19%</td></tr>
           </tbody>
-        </table>
+        </table></div>
         <div style="font-size:12px;color:var(--muted-soft);margin-top:8px">TikTok 互动效率最高；Reddit 硬核向负面比例最高（19%）。</div>
       </div>
     </div>
@@ -488,7 +514,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
 
     <div class="subh serif" style="margin-top:26px">④ 海外热门话题标签（按平台来源过滤，保留全语言）</div>
     <div class="grid2" style="align-items:start">
-      <table class="tbl">
+      <div class="tbl-scroll"><table class="tbl">
         <thead><tr><th>标签</th><th>语言</th><th>帖数</th><th>信号</th></tr></thead>
         <tbody>
           <tr><td class="hi">#pokemon</td><td>英</td><td class="n">71</td><td><strong>最大关联词，宝可梦对标底色</strong></td></tr>
@@ -500,7 +526,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
           <tr><td>#vtuber / #streamer</td><td>英/日</td><td class="n">24/25</td><td>主播/Vtuber 直播生态</td></tr>
           <tr><td>#任天堂 / #解説</td><td>日</td><td class="n">1+</td><td>日区"任天堂对标/解说"向</td></tr>
         </tbody>
-      </table>
+      </table></div>
       <div class="cmp" style="margin:0">
         <div class="side pre"><div class="lbl">7.10 前 · 创作者内容</div>
           <div class="row"><span>内容基调</span><b class="txt">预告/期待</b></div>
@@ -578,19 +604,19 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
             <div class="row"><span>累计评测数</span><b class="txt num">36.5 万</b></div>
           </div>
         </div>
-        <table class="tbl" style="margin-top:14px">
+        <div class="tbl-scroll"><table class="tbl" style="margin-top:14px">
           <thead><tr><th>Steam 综合评价（截至 7/14）</th><th>好评率</th><th>评测数</th></tr></thead>
           <tbody>
             <tr><td>全部评测 All Reviews</td><td class="n hi">94%</td><td class="n">365,082</td></tr>
             <tr><td>近期评测 Recent（30天）</td><td class="n">93%</td><td class="n">9,565</td></tr>
           </tbody>
-        </table>
+        </table></div>
       </div>
     </div>
 
     <div class="subh serif" style="margin-top:26px">全量评论细分 · 实采 10,243 条 Steam 评论双口径分析 <span style="font-size:13px;color:var(--muted-soft);font-family:var(--sans)">7/1–7/14 · BigQuery 全量直查</span></div>
     <div class="grid2" style="align-items:start">
-      <table class="tbl">
+      <div class="tbl-scroll"><table class="tbl">
         <thead><tr><th>口径</th><th>开服前(7.1–7.9)</th><th>开服后(7.10–7.14)</th><th>变化</th></tr></thead>
         <tbody>
           <tr><td>实采评论数</td><td class="n">1,747</td><td class="n hi">8,496</td><td class="n">×4.9</td></tr>
@@ -598,7 +624,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
           <tr><td>NLP 正面占比</td><td class="n">73.7%</td><td class="n">71.8%</td><td class="n">-1.9pt</td></tr>
           <tr><td>NLP 负面占比</td><td class="n">6.7%</td><td class="n">9.9%</td><td class="n">+3.2pt</td></tr>
         </tbody>
-      </table>
+      </table></div>
       <div class="infocard" style="margin:0">
         <div class="tit">◆ 两种"好评率"口径差异（勿混用）</div>
         <b>Steam 推荐率 92.2%</b>（玩家点"推荐/不推荐"的原生机制，与商店页 94% 同源）远高于 <b>NLP 正面 71.8%</b>（模型对评论文本的情绪判定）。差值来自：许多玩家<strong>「推荐但吐槽」</strong>——正文含 bug/抱怨（NLP 判中性/负面），但仍点了推荐。两口径都真实，商店门面看推荐率、口碑质量看 NLP。
@@ -644,7 +670,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
     <div class="grid2" style="align-items:start;margin-bottom:6px">
       <div>
         <div class="subh serif">头部主播（多语区，按观看/观众）</div>
-        <table class="tbl" style="background:var(--surface-dark-soft);border-color:#2c2a27">
+        <div class="tbl-scroll"><table class="tbl" style="background:var(--surface-dark-soft);border-color:#2c2a27">
           <thead><tr style="background:#2c2a27"><th style="color:var(--on-dark);background:#2c2a27">主播</th><th style="color:var(--on-dark);background:#2c2a27">语区</th><th style="color:var(--on-dark);background:#2c2a27">观看时长/均观众</th></tr></thead>
           <tbody>
             <tr><td style="color:var(--on-dark-soft);border-color:#2c2a27">leaksworld_</td><td style="color:var(--on-dark-soft);border-color:#2c2a27">英</td><td class="n" style="color:var(--accent-amber);border-color:#2c2a27">8,741 h</td></tr>
@@ -654,7 +680,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
             <tr><td style="color:var(--on-dark-soft);border-color:#2c2a27">Gospojaaaa</td><td style="color:var(--on-dark-soft);border-color:#2c2a27">俄</td><td class="n" style="color:var(--on-dark);border-color:#2c2a27">3,942 h</td></tr>
             <tr><td style="color:var(--on-dark-soft);border-color:#2c2a27">JadeyAnh</td><td style="color:var(--on-dark-soft);border-color:#2c2a27">英</td><td class="n" style="color:var(--on-dark);border-color:#2c2a27">均 970 人</td></tr>
           </tbody>
-        </table>
+        </table></div>
       </div>
       <div class="chart-card" style="background:var(--surface-dark-soft);border-color:#2c2a27">
         <div class="ct" style="color:var(--on-dark)">头 / 中 / 尾主播：人数 vs 观看时长贡献</div>
@@ -664,7 +690,7 @@ footer .fnote{margin-top:18px;padding-top:18px;border-top:1px solid #2c2a27;font
           <span><span class="dot" style="background:#e8a55a"></span>腰部</span>
           <span><span class="dot" style="background:#5db8a6"></span>长尾</span>
         </div>
-        <div style="display:flex;gap:8px">
+        <div class="dual-pie" style="display:flex;gap:8px">
           <div class="canvas-wrap" style="height:200px;flex:1"><canvas id="cTier" role="img" aria-label="主播头中尾人数分布">人数分布</canvas></div>
           <div class="canvas-wrap" style="height:200px;flex:1"><canvas id="cTierWatch" role="img" aria-label="主播观看时长贡献分布">观看时长贡献</canvas></div>
         </div>
